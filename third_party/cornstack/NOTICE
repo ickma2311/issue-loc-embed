@@ -1,0 +1,7 @@
+Files in this directory are copied unmodified (apart from a header comment) from
+https://github.com/gangiswag/cornstack at commit c4f3e1289df917275860affc03e640ddf99d466f, licensed under the Apache License 2.0
+(http://www.apache.org/licenses/LICENSE-2.0). They implement the SWE-Bench-Lite function-level
+corpus and gold extraction (itself derived from Agentless) used by CoRNStack and SweRank.
+
+CoRNStack's get_patch_info.py / get_repo_structure.py are themselves derived from Agentless
+(https://github.com/OpenAutoCoder/Agentless, MIT License, Copyright (c) 2024 OpenAutoCoder).

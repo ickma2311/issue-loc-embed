@@ -1,0 +1,33 @@
+issue-loc-embed
+Copyright 2026 the issue-loc-embed authors
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+It is an independent re-implementation of the training recipe described in
+"SweRank: Software Issue Localization with Code Ranking" (Reddy et al., arXiv 2505.07849).
+No SweRank code or model weights were used for training, filtering or mining; the method was implemented from
+the paper text. SweRankEmbed-Small (CC-BY-NC-4.0) was only evaluated as a reference.
+
+Third-party code included:
+
+- third_party/cornstack/: copied unmodified (apart from a header) from
+  https://github.com/gangiswag/cornstack (commit c4f3e1289df917275860affc03e640ddf99d466f),
+  Apache License 2.0, Copyright the CoRNStack authors. Used only to reproduce the
+  SWE-Bench-Lite function-localization evaluation protocol. Those files are themselves derived
+  from Agentless (https://github.com/OpenAutoCoder/Agentless), MIT License,
+  Copyright (c) 2024 OpenAutoCoder. Licence texts: third_party/cornstack/LICENSE.cornstack-Apache-2.0 and
+  third_party/cornstack/LICENSE.agentless-MIT.
+
+Models and data:
+
+- Base model: nomic-ai/CodeRankEmbed (MIT License).
+- Training tasks: nebius/SWE-rebench and nebius/SWE-rebench-V2 (CC-BY-4.0; Badertdinov et al.,
+  arXiv 2505.20411, and "SWE-rebench V2", arXiv 2602.23866), restricted to
+  repositories with permissive licences (MIT, Apache-2.0, BSD, ISC, Unlicense, CC0, ...). No code or issue text from the training
+  or evaluation repositories is included in this repository; see docs/DATA.md for the pointer format and build script. The pointer
+  file (data/train_pointers.parquet) is adapted from SWE-rebench / SWE-rebench-V2 (row selection, derived function
+  ids) and is distributed under CC-BY-4.0 (https://creativecommons.org/licenses/by/4.0/).
+- Evaluation labels: czlll/SWE-bench_Lite (gold functions released with LocAgent) over
+  princeton-nlp/SWE-bench_Lite (SWE-bench code is MIT; the HF dataset card declares no licence).
+- Second evaluation set: czlll/Loc-Bench_V1 (LocAgent, Chen et al., arXiv 2503.09089; the HF dataset card
+  declares no licence), used for evaluation only and not redistributed.

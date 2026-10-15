@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "issue-loc-embed"
+version = "0.1.0"
+description = "Permissively licensed re-implementation of the SweRank data recipe for issue-to-function retrieval"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.10"
+dependencies = [
+  "numpy",
+  "pyarrow",
+  "fsspec",
+  "aiohttp",
+  "torch",
+  "transformers",
+  "huggingface_hub",
+  "safetensors",
+  "einops",
+]
+
+[project.optional-dependencies]
+# The three extras below are separate environments with conflicting pins; install one per virtual environment.
+# Evaluation of the released file (eval_st.py) and the model card usage, as run (Kaggle T4, torch 2.11.0+cu128):
+eval = ["sentence-transformers==5.7.0", "transformers==4.57.6"]
+# Training, mining and the vLLM evaluations (colab/), as run on Colab L4 (torch 2.13.0+cu130):
+fast = ["vllm==0.31.0", "transformers==5.17.0"]
+# LateOn baselines (lateon_eval.py / colab/calibrate.py), as run (torch 2.11.0+cu130):
+lateon = ["pylate==1.6.0", "transformers==5.3.0"]
+test = ["pytest"]
+
+[tool.setuptools]
+packages = ["issueloc", "third_party", "third_party.cornstack"]

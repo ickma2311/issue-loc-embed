@@ -1,0 +1,257 @@
+{
+ "build_started": "2026-10-12T23:45:32Z",
+ "datasets": {
+  "nebius/SWE-rebench": {
+   "parquet": {
+    "id": "21fe2abc5628fee15fe93d211dcd303ca85f3683",
+    "date": "2025-12-23T19:42:16.000Z",
+    "latest_now": "21fe2abc5628fee15fe93d211dcd303ca85f3683",
+    "changed_since_build": false
+   },
+   "main": {
+    "id": "89cdfbab4ab1bd8f5a658bb212d1b63624f4f881",
+    "date": "2025-12-23T19:41:57.000Z",
+    "latest_now": "89cdfbab4ab1bd8f5a658bb212d1b63624f4f881",
+    "changed_since_build": false
+   },
+   "parts": [
+    {
+     "split": "test",
+     "part": "0000",
+     "url": "https://huggingface.co/datasets/nebius/SWE-rebench/resolve/21fe2abc5628fee15fe93d211dcd303ca85f3683/default/test/0000.parquet",
+     "sha256": "39d4791f12cf5ee2a2e56d47eeef559642a800534ff053e1ae3acab0a0c87067",
+     "rows": 10668
+    },
+    {
+     "split": "test",
+     "part": "0001",
+     "url": "https://huggingface.co/datasets/nebius/SWE-rebench/resolve/21fe2abc5628fee15fe93d211dcd303ca85f3683/default/test/0001.parquet",
+     "sha256": "c50af8bffbfe70fc3a89b2e47825f299bc04c1058318fe2263b7e4857f8193d7",
+     "rows": 10668
+    }
+   ]
+  },
+  "nebius/SWE-rebench-V2": {
+   "parquet": {
+    "id": "4d10ee08ee246f5d7475c3cef8baea030fdf4942",
+    "date": "2026-10-01T17:54:26.000Z",
+    "latest_now": "4d10ee08ee246f5d7475c3cef8baea030fdf4942",
+    "changed_since_build": false
+   },
+   "main": {
+    "id": "10483de0f50fe5da545942705a76c6150171af7f",
+    "date": "2026-10-01T17:53:16.000Z",
+    "latest_now": "10483de0f50fe5da545942705a76c6150171af7f",
+    "changed_since_build": false
+   },
+   "parts": [
+    {
+     "split": "train",
+     "part": "0000",
+     "url": "https://huggingface.co/datasets/nebius/SWE-rebench-V2/resolve/4d10ee08ee246f5d7475c3cef8baea030fdf4942/default/train/0000.parquet",
+     "sha256": "0e0bf9355f892ad74ae98d4e1c404f39fd6654a8e351ee3e6ab162e4a64cd3ad",
+     "rows": 32079
+    }
+   ]
+  },
+  "czlll/SWE-bench_Lite": {
+   "parquet": {
+    "id": "e2bff55659263a2eae404e38eb821bd1c11e4cb4",
+    "date": "2025-03-20T13:02:17.000Z",
+    "latest_now": "e2bff55659263a2eae404e38eb821bd1c11e4cb4",
+    "changed_since_build": false
+   },
+   "main": {
+    "id": "97f9af8814fe7eb15dcd9b2abaa9010e1eadda63",
+    "date": "2025-03-20T13:01:46.000Z",
+    "latest_now": "97f9af8814fe7eb15dcd9b2abaa9010e1eadda63",
+    "changed_since_build": false
+   },
+   "parts": [
+    {
+     "split": "test",
+     "part": "0000",
+     "url": "https://huggingface.co/datasets/czlll/SWE-bench_Lite/resolve/e2bff55659263a2eae404e38eb821bd1c11e4cb4/default/test/0000.parquet",
+     "sha256": "008ac523001de665d3f1e4f4179587dcd68dd7b2f2d5bd878a5385e3e938b59d",
+     "rows": 274
+    }
+   ]
+  },
+  "princeton-nlp/SWE-bench": {
+   "parquet": {
+    "id": "9d0f6fa0295e7b65123111da98d53ed6c9bec66d",
+    "date": "2025-03-03T05:28:22.000Z",
+    "latest_now": "9d0f6fa0295e7b65123111da98d53ed6c9bec66d",
+    "changed_since_build": false
+   },
+   "main": {
+    "id": "e48e2bd1e9fecd5bbd641e9414ac59da9f2e69f6",
+    "date": "2025-03-03T05:28:08.000Z",
+    "latest_now": "e48e2bd1e9fecd5bbd641e9414ac59da9f2e69f6",
+    "changed_since_build": false
+   },
+   "parts": [
+    {
+     "split": "test",
+     "part": "0000",
+     "url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench/resolve/9d0f6fa0295e7b65123111da98d53ed6c9bec66d/default/test/0000.parquet",
+     "sha256": "db4f70ef735b3162c74801ddcdf8d7bae8d704193788c6d844f898c20b571cbb",
+     "rows": 2294
+    },
+    {
+     "split": "dev",
+     "part": "0000",
+     "url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench/resolve/9d0f6fa0295e7b65123111da98d53ed6c9bec66d/default/dev/0000.parquet",
+     "sha256": "d758d54540aa4140d0274ed0cc93b8288aa6f323c3c603e2557e7666a47fc41b",
+     "rows": 225
+    }
+   ]
+  },
+  "princeton-nlp/SWE-bench_Lite": {
+   "parquet": {
+    "id": "177b1fa24f05b6351ad8e4439d26ac68b7ba27ff",
+    "date": "2025-03-03T08:14:12.000Z",
+    "latest_now": "177b1fa24f05b6351ad8e4439d26ac68b7ba27ff",
+    "changed_since_build": false
+   },
+   "main": {
+    "id": "6ec7bb89b9342f664a54a6e0a6ea6501d3437cc2",
+    "date": "2025-03-03T05:29:31.000Z",
+    "latest_now": "6ec7bb89b9342f664a54a6e0a6ea6501d3437cc2",
+    "changed_since_build": false
+   },
+   "parts": [
+    {
+     "split": "test",
+     "part": "0000",
+     "url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Lite/resolve/177b1fa24f05b6351ad8e4439d26ac68b7ba27ff/default/test/0000.parquet",
+     "sha256": "7a21f37b8bc179c7db5beeb14e88ac538ba283455c776e6b2535bbfb6e3551b4",
+     "rows": 300
+    },
+    {
+     "split": "dev",
+     "part": "0000",
+     "url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Lite/resolve/177b1fa24f05b6351ad8e4439d26ac68b7ba27ff/default/dev/0000.parquet",
+     "sha256": "8312f321838051849d2fa7c6ca071244733a3e90bb517ff6ca8186f722199b5c",
+     "rows": 23
+    }
+   ]
+  },
+  "czlll/Loc-Bench_V1": {
+   "parquet": {
+    "id": "f3087a02d989bd31beef561321cdfcf0a450f826",
+    "date": "2025-05-01T09:04:42.000Z",
+    "latest_now": "f3087a02d989bd31beef561321cdfcf0a450f826",
+    "changed_since_build": false
+   },
+   "main": {
+    "id": "c44cf3b74e07ca642cec841b471a9939907c12a7",
+    "date": "2025-04-27T10:53:00.000Z",
+    "latest_now": "c44cf3b74e07ca642cec841b471a9939907c12a7",
+    "changed_since_build": false
+   },
+   "parts": [
+    {
+     "split": "test",
+     "part": "0000",
+     "url": "https://huggingface.co/datasets/czlll/Loc-Bench_V1/resolve/f3087a02d989bd31beef561321cdfcf0a450f826/default/test/0000.parquet",
+     "sha256": "8df0833c2c1276c5837aab923d489ab97d7654529abe759d0f59242c4978a662",
+     "rows": 560
+    }
+   ]
+  },
+  "czlll/Loc-Bench_V0.2": {
+   "parquet": {
+    "id": "cb5f2a2fd17981d9b2cfece8d7327f5989b7091b",
+    "date": "2025-04-27T10:43:56.000Z",
+    "latest_now": "cb5f2a2fd17981d9b2cfece8d7327f5989b7091b",
+    "changed_since_build": false
+   },
+   "main": {
+    "id": "e38b6bedc52ba15adba73ec6440df4ea17722447",
+    "date": "2025-04-27T10:54:02.000Z",
+    "latest_now": "e38b6bedc52ba15adba73ec6440df4ea17722447",
+    "changed_since_build": false
+   },
+   "parts": [
+    {
+     "split": "test",
+     "part": "0000",
+     "url": "https://huggingface.co/datasets/czlll/Loc-Bench_V0.2/resolve/cb5f2a2fd17981d9b2cfece8d7327f5989b7091b/default/test/0000.parquet",
+     "sha256": "5de084dce1916e8c121c52429dd8081609737f59cebcf2ddc731f6d6807925e8",
+     "rows": 660
+    }
+   ]
+  },
+  "czlll/Loc-Bench_V0.1": {
+   "parquet": {
+    "id": "2fb1064f5bd99f1b9d77e3a43fad51de2524ddab",
+    "date": "2025-04-27T10:43:25.000Z",
+    "latest_now": "2fb1064f5bd99f1b9d77e3a43fad51de2524ddab",
+    "changed_since_build": false
+   },
+   "main": {
+    "id": "2fddb8d6749fb293d4bfd7176551193e4c7f9361",
+    "date": "2025-04-27T10:54:12.000Z",
+    "latest_now": "2fddb8d6749fb293d4bfd7176551193e4c7f9361",
+    "changed_since_build": false
+   },
+   "parts": [
+    {
+     "split": "test",
+     "part": "0000",
+     "url": "https://huggingface.co/datasets/czlll/Loc-Bench_V0.1/resolve/2fb1064f5bd99f1b9d77e3a43fad51de2524ddab/default/test/0000.parquet",
+     "sha256": "c6f4f93411ee878fe3f6aebe295fec30fabcdaa9da9994afd85724205d49b494",
+     "rows": 660
+    }
+   ]
+  },
+  "mteb/CodeSearchNetRetrieval": {
+   "parquet": {
+    "id": "698f8e1f6f9afc8c3df12543f5f1b203b3af5842",
+    "date": "2025-10-18T15:37:14.000Z",
+    "latest_now": "698f8e1f6f9afc8c3df12543f5f1b203b3af5842",
+    "changed_since_build": false
+   },
+   "main": {
+    "id": "68e8f0731a656fa4bd5b7c81936d95ad48a39bfe",
+    "date": "2025-10-18T15:33:17.000Z",
+    "latest_now": "68e8f0731a656fa4bd5b7c81936d95ad48a39bfe",
+    "changed_since_build": false
+   }
+  }
+ },
+ "check": {
+  "eval_repos": 229,
+  "eval_repos_expected": 229,
+  "selected": 20574,
+  "selected_expected": 20574,
+  "selection_stats": {
+   "v1:all": 21336,
+   "v1:kept": 16428,
+   "v1:drop_licence": 583,
+   "v1:drop_no_py_src_change": 59,
+   "v1:drop_eval_repo": 4217,
+   "v1:drop_empty_issue": 49,
+   "v2:all": 7243,
+   "v2:kept": 4146,
+   "v2:drop_eval_repo": 1071,
+   "v2:drop_licence": 1508,
+   "v2:drop_dup_v1v2": 497,
+   "v2:drop_no_py_src_change": 21
+  },
+  "build_train_tasks": 19221,
+  "build_train_tasks_not_in_selection": 0,
+  "build_eval_tasks": 274,
+  "build_eval_tasks_equal_czlll_lite": true,
+  "lite_274_created_range": [
+   "2012-09-20",
+   "2023-07-17"
+  ],
+  "build_output_sha256": {
+   "train_tasks.parquet": "ab1c54460e3063f269efa222bf80ca11190dfaaa4ac3af2700ef62d7d06734f8",
+   "eval_tasks.parquet": "ffc1e9417dd849446ca200d418917fe606d71882ecd3cc27f0adf0273eff81b2"
+  },
+  "pass": true
+ }
+}
