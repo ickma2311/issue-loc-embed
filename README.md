@@ -174,13 +174,16 @@ shrinks to about 5 points. General docstring-to-code search gets slightly worse.
 ## Usage
 
 The model has the same architecture and tokenizer as CodeRankEmbed (CLS pooling, normalised embeddings). This
-example loads v0.1 (the version described above); without `revision` it loads the current version (v0.2, see the
-model card for its unit format in other languages).
+example loads v0.1 (the version described above) from a local snapshot; `SentenceTransformer("ickma2311/issue-loc-embed-small",
+trust_remote_code=True)` loads the current version (v0.2, see the model card for its unit format in other languages).
+The model's remote code (from CodeRankEmbed) reads the weights of the default branch even when `revision=` is given;
+load a tagged version from a local snapshot as shown.
 
 ```python
+from huggingface_hub import snapshot_download
 from sentence_transformers import SentenceTransformer
 
-model = SentenceTransformer("ickma2311/issue-loc-embed-small", revision="v0.1", trust_remote_code=True)
+model = SentenceTransformer(snapshot_download("ickma2311/issue-loc-embed-small", revision="v0.1"), trust_remote_code=True)
 units = ["pkg/module.py/MyClass/method\nclass MyClass:    def method(self, ...):\n        ...",
          "pkg/util.py/helper\ndef helper(x):\n    ..."]
 model.max_seq_length = 1024   # queries, as evaluated

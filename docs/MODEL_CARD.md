@@ -26,8 +26,18 @@ C++ issues. **v0.1** (Python only, the first release) stays available under the 
 
 | Version | Load with |
 |---|---|
-| v0.2 (default) | `SentenceTransformer("ickma2311/issue-loc-embed-small", revision="v0.2", trust_remote_code=True)` (or no `revision`) |
-| v0.1 | `SentenceTransformer("ickma2311/issue-loc-embed-small", revision="v0.1", trust_remote_code=True)` |
+| v0.2 (default branch) | `SentenceTransformer("ickma2311/issue-loc-embed-small", trust_remote_code=True)` |
+| v0.1 | see the code below |
+
+```python
+from huggingface_hub import snapshot_download
+from sentence_transformers import SentenceTransformer
+
+model = SentenceTransformer(snapshot_download("ickma2311/issue-loc-embed-small", revision="v0.1"), trust_remote_code=True)
+```
+
+The model's remote code (from CodeRankEmbed) reads the weights of the default branch even when `revision=` is given;
+load a tagged version from a local snapshot as shown.
 
 Code, evaluation protocol and training-data pointers: https://github.com/ickma2311/issue-loc-embed.
 
