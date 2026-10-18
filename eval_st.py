@@ -2,8 +2,9 @@
 
   --set lite   SWE-Bench-Lite 274 tasks, paper protocol (the evaluated eval_*_paper files, uploaded)
   --set locb   LocBench V1 560 tasks, same protocol (build_locbench.py output, mounted kernel output)
-  --model REL  the released model directory (model.safetensors sha256 checked); B0 = CodeRankEmbed (start
-               point), REF = SweRankEmbed-Small, QWEN06 = Qwen3-Embedding-0.6B, from the hub
+  --set ml     SWE-bench Multilingual 234 tasks (build_multilang.py output; mteb/SWEbenchMultilingualRR @2129d0f)
+  --model REL  the released v0.1 model directory, V02 the v0.2 directory (model.safetensors sha256 checked);
+               B0 = CodeRankEmbed (start point), REF = SweRankEmbed-Small, QWEN06 = Qwen3-Embedding-0.6B, from the hub
 
 Every model: SentenceTransformer(..., trust_remote_code=True), fp16 on GPU, normalised embeddings; queries
 1,024 tokens with the author's query prefix, code units 512 tokens, no prompt on code. Ranking and Acc@k
@@ -26,18 +27,26 @@ from pathlib import Path
 import numpy as np
 import pyarrow.parquet as pq
 
-REL_SHA = "4b09febe6a337b293aa79fda038dd361d5a6ffbfd903c22a0de8e700b3f93eba"
+REL_SHA = "4b09febe6a337b293aa79fda038dd361d5a6ffbfd903c22a0de8e700b3f93eba"   # v0.1
+V02_SHA = "9a1214e88d0f6825ab1518e764e9d377ebfd2648668460f451a58c749f08ca0a"   # v0.2
 CODE_PREFIX = "Represent this query for searching relevant code: "
 QWEN_PREFIX = "Instruct: Given a GitHub issue, retrieve the code that needs to be changed to resolve it\nQuery:"
 HUB = {"B0": "nomic-ai/CodeRankEmbed", "REF": "Salesforce/SweRankEmbed-Small", "QWEN06": "Qwen/Qwen3-Embedding-0.6B"}
 FILES = {"lite": ("eval_tasks_paper.parquet", "eval_ent_paper_000.parquet", "eval_txt_paper_000.parquet"),
-         "locb": ("locb_tasks_paper.parquet", "locb_ent_paper_000.parquet", "locb_txt_paper_000.parquet")}
-N_TASKS = {"lite": 274, "locb": 560}
+         "locb": ("locb_tasks_paper.parquet", "locb_ent_paper_000.parquet", "locb_txt_paper_000.parquet"),
+         "ml": ("ml_tasks.parquet", "ml_ent.parquet", "ml_txt.parquet")}
+N_TASKS = {"lite": 274, "locb": 560, "ml": 234}
 INPUT_SHA = {  # the evaluated Lite files (evidence bundle) and the LocBench build output (run 20261014-135654)
     "eval_tasks_paper.parquet": "9af40fae", "eval_ent_paper_000.parquet": "6b5709f3", "eval_txt_paper_000.parquet": "09f7deea",
-    "locb_tasks_paper.parquet": "f69ef7f4", "locb_ent_paper_000.parquet": "317f15ff", "locb_txt_paper_000.parquet": "27eedda7"}
+    "locb_tasks_paper.parquet": "f69ef7f4", "locb_ent_paper_000.parquet": "317f15ff", "locb_txt_paper_000.parquet": "27eedda7",
+    "ml_tasks.parquet": "014e4d47", "ml_ent.parquet": "f85d3cdd", "ml_txt.parquet": "d9622d67"}  # build_multilang.py
 # LocBench tasks from repositories with a training-set counterpart, excluded from the headline numbers:
 # sktime/sktime (fork aeon-toolkit/aeon in training), Qiskit/qiskit (= Qiskit/qiskit-terra in training, renamed)
+# ml set: some candidates are whole minified files (up to 954,112 characters). The model reads only the first 512
+# tokens, so texts are cut to CHAR_CAP characters while they are read; main() checks that every cut text still has
+# >= CUT_MIN_TOKENS tokens, so the first 512 tokens are the same as for the full text.
+CHAR_CAP = {"ml": 50000}
+CUT_MIN_TOKENS = 640
 LOCB_EXCL = {"sktime": {"sktime/sktime"}, "sktime_qiskit": {"sktime/sktime", "qiskit/qiskit"}}
 Q_LEN, D_LEN = 1024, 512
 
@@ -77,27 +86,37 @@ def load_set(which: str, root: str, limit: int, check_inputs: bool = True):
     del ent
     need = sorted({h for v in by_snap.values() for _, h in v})
     want = set(need)
-    text = {}
-    for b in pq.ParquetFile(paths[2]).iter_batches(batch_size=200000, columns=["h", "text"]):
-        for h, x in zip(b.column(0).to_pylist(), b.column(1).to_pylist()):
+    text, cut = {}, set()
+    cap = CHAR_CAP.get(which, 0)
+    for b in pq.ParquetFile(paths[2]).iter_batches(batch_size=20000 if cap else 200000, columns=["h", "text"]):
+        col = b.column(1)
+        if cap:  # cut in Arrow, before the full texts become Python strings
+            import pyarrow.compute as pc
+            long = pc.greater(pc.utf8_length(col), cap).to_pylist()
+            col = pc.utf8_slice_codeunits(col, 0, cap)
+        else:
+            long = [False] * len(col)
+        for h, x, lg in zip(b.column(0).to_pylist(), col.to_pylist(), long):
             if h in want:
+                if lg:
+                    cut.add(h)
                 text[h] = x
     assert len(text) == len(need), (len(text), len(need))
     inputs = {p.name: sha256(p) for p in paths}
     for k, v in inputs.items() if check_inputs else ():
         assert v.startswith(INPUT_SHA[k]), f"{k}: sha256 {v[:8]} != expected {INPUT_SHA[k]}"
-    return tasks, by_snap, need, text, inputs
+    return tasks, by_snap, need, text, inputs, cut
 
 
 def load_st(model: str, rel_dir: str, device: str, dtype: str):
     import torch
     from sentence_transformers import SentenceTransformer
     info = {}
-    if model == "REL":
+    if model in ("REL", "V02"):
         d = Path(rel_dir)
         info["path"] = str(d)
         info["safetensors_sha256"] = sha256(d / "model.safetensors")
-        assert info["safetensors_sha256"] == REL_SHA, info
+        assert info["safetensors_sha256"] == (REL_SHA if model == "REL" else V02_SHA), info
         target, kw = str(d), {}
     else:
         from huggingface_hub import snapshot_download
@@ -116,7 +135,7 @@ def load_st(model: str, rel_dir: str, device: str, dtype: str):
     info["param_dtype"] = str(pd.pop())
     # the weights in use are exactly the files on disk: the release file, or the hub snapshot at the revision
     from safetensors.torch import load_file
-    wdir = target if model == "REL" else snap
+    wdir = target if model in ("REL", "V02") else snap
     files = sorted(glob.glob(os.path.join(wdir, "*.safetensors")))
     assert files, f"no safetensors in {wdir}"
     ref = {}
@@ -130,7 +149,7 @@ def load_st(model: str, rel_dir: str, device: str, dtype: str):
     assert not absent and not unused, (absent[:5], unused[:5])
     bad = [k for k in ref if not torch.equal(msd[k].float().cpu(), ref[k].to(cast).float())]
     assert not bad, bad[:5]
-    info["weights_check"] = f"{len(ref)} tensors equal to {'model.safetensors' if model == 'REL' else 'hub snapshot'} ({dtype})"
+    info["weights_check"] = f"{len(ref)} tensors equal to {'model.safetensors' if model in ('REL', 'V02') else 'hub snapshot'} ({dtype})"
     return st, info
 
 
@@ -186,6 +205,7 @@ def rank(tasks, by_snap, D, Q, need):
         ranked = sorted(best, key=best.get, reverse=True)
         pos = {u: j + 1 for j, u in enumerate(ranked)}
         gold = list(t["gold"])
+        gs = set(gold); gscores = {best[g] for g in gold if g in best}
         fbest = {}
         for u, s in best.items():
             f = u.split(":", 1)[0]
@@ -194,7 +214,8 @@ def rank(tasks, by_snap, D, Q, need):
         per.append({"instance_id": t["instance_id"], "repo": t["repo"],
                     "func_need_k": int(max(pos.get(g, 10**9) for g in gold)),
                     "file_need_k": int(max(fpos.get(g.split(":", 1)[0], 10**9) for g in gold)),
-                    "gold_missing": int(sum(g not in pos for g in gold)), "n_units": len(ranked)})
+                    "gold_missing": int(sum(g not in pos for g in gold)), "n_units": len(ranked),
+                    "gold_ties": int(sum(1 for u, sc in best.items() if u not in gs and sc in gscores))})
     return per
 
 
@@ -206,8 +227,8 @@ def summary(per):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--set", choices=["lite", "locb"], required=True)
-    ap.add_argument("--model", choices=["REL", "B0", "REF", "QWEN06"], required=True)
+    ap.add_argument("--set", choices=["lite", "locb", "ml"], required=True)
+    ap.add_argument("--model", choices=["REL", "V02", "B0", "REF", "QWEN06"], required=True)
     ap.add_argument("--root", default="/kaggle/input")
     ap.add_argument("--rel-dir", default="/kaggle/temp/issue-loc-embed-small")
     ap.add_argument("--dtype", default="float16", choices=["float16", "float32"])
@@ -221,7 +242,7 @@ def main():
     import transformers
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
-    tasks, by_snap, need, text, inputs = load_set(a.set, a.root, a.limit, not a.no_input_check)
+    tasks, by_snap, need, text, inputs, cut = load_set(a.set, a.root, a.limit, not a.no_input_check)
     if a.max_units:
         by_snap = {s: v[: a.max_units] for s, v in by_snap.items()}
         need = sorted({h for v in by_snap.values() for _, h in v})
@@ -230,6 +251,14 @@ def main():
     dtype = a.dtype if devs[0] != "cpu" else "float32"
     loaded = [load_st(a.model, a.rel_dir, d, dtype) for d in devs]
     models, info = [m for m, _ in loaded], loaded[0][1]
+    cut = sorted(cut & set(need))
+    if cut:  # the cut keeps the model input: every cut text still has far more than D_LEN tokens
+        n_tok = [len(x) for s in range(0, len(cut), 64)
+                 for x in models[0].tokenizer([text[h] for h in cut[s:s + 64]], add_special_tokens=True,
+                                              truncation=False)["input_ids"]]
+        info["char_cut"] = {"char_cap": CHAR_CAP[a.set], "n_cut": len(cut), "min_tokens_after_cut": min(n_tok)}
+        log(f"cut {len(cut)} texts to {CHAR_CAP[a.set]} characters; min tokens after the cut {min(n_tok)}")
+        assert min(n_tok) >= CUT_MIN_TOKENS, info["char_cut"]
     prompt = QWEN_PREFIX if a.model == "QWEN06" else CODE_PREFIX
     bs = 32 if a.model == "QWEN06" else 128
     t0 = time.time()
@@ -244,6 +273,13 @@ def main():
                                                 "gpu": torch.cuda.get_device_name(0) if torch.cuda.is_available() else "cpu"},
            "encode_seconds": enc_s, "smoke": bool(a.limit or a.max_units),
            "all": summary(per), "per_instance": per}
+    if a.set == "ml":  # per language; file-level metrics do not apply (candidate ids carry no path)
+        for key in ("language", "language_group"):
+            lang = {t["instance_id"]: t[key] for t in tasks}
+            res[f"by_{key}"] = {L: summary([p for p in per if lang[p["instance_id"]] == L]) for L in sorted(set(lang.values()))}
+        for r in [res["all"], *res["by_language"].values(), *res["by_language_group"].values()]:
+            r.pop("file_acc", None)
+        res["gold_ties"] = sum(p.get("gold_ties", 0) for p in per)  # score ties at a gold score (corpus order wins)
     if a.set == "locb":
         for k, repos in LOCB_EXCL.items():
             res[f"excl_{k}"] = summary([p for p in per if p["repo"].lower() not in repos])

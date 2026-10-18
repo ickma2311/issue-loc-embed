@@ -11,13 +11,34 @@ rebuilds the recipe from the paper text only, on permissively licensed repositor
 model [`nomic-ai/CodeRankEmbed`](https://huggingface.co/nomic-ai/CodeRankEmbed). The resulting model is
 released under Apache-2.0: [ickma2311/issue-loc-embed-small](https://huggingface.co/ickma2311/issue-loc-embed-small).
 
-> Status: research release (v0.1). Numbers below are **measured by us** unless marked otherwise.
+> Status: research release. **v0.2** (Python + Go, TypeScript, JavaScript, Rust, Java, PHP, C, C++) is the current
+> model; its results, evaluation hygiene and limits are in the model card ([docs/MODEL_CARD.md](docs/MODEL_CARD.md)).
+> The sections below describe **v0.1** (Python only, revision `v0.1` on Hugging Face). Numbers are **measured by us**
+> unless marked otherwise.
+
+## v0.2 in short
+
+Acc@10 (all gold functions in the top 10), measured by us, one training run:
+
+| Benchmark | CodeRankEmbed | v0.1 | v0.2 |
+|---|---|---|---|
+| SWE-bench Multilingual (234 issues, 9 languages) | 35.47 | 42.31 | 45.30 |
+| SWE-Bench-Lite (274, Python) | 60.22 | 72.99 | 74.09 |
+| LocBench (552, Python) | 46.74 | 56.70 | 57.61 |
+
+v0.2 − v0.1 on SWE-bench Multilingual is +2.99 Acc@10 (9 issues gained, 2 lost). v0.2 added training data in 8
+languages and also trained for more steps (604 vs 286), so the difference cannot be attributed to the new data.
+SWE-bench Multilingual is benchmark-informed for v0.2 (see the model card). Post-hoc check: without the 11 issues
+from `prometheus/prometheus` and `nushell/nushell` (training contains code predecessors of both), 44.39 / 41.70 /
+34.53 (v0.2 / v0.1 / CodeRankEmbed, 223 issues). The LocBench row leaves out the 8 issues of `sktime/sktime` and
+`Qiskit/qiskit`, because training contains a fork and a renamed copy of them; on all 560 issues: 58.21 / 57.32 /
+47.32. Data, isolation checks and known label limits: [docs/DATA.md](docs/DATA.md).
 
 [![Demo video: issue-loc-embed-small, 3 minutes](docs/demo-thumbnail.png)](https://huggingface.co/ickma2311/issue-loc-embed-small/blob/main/demo/issue-loc-embed-demo.mp4)
 
 Demo video (3 minutes, English narration, English and Chinese captions): [watch on Hugging Face](https://huggingface.co/ickma2311/issue-loc-embed-small/blob/main/demo/issue-loc-embed-demo.mp4).
 
-## Results — function localization
+## v0.1 results — function localization
 
 Protocol: SweRank / CoRNStack evaluation. Candidate units are the functions and methods of non-test files at
 the issue's base commit, each represented as `path/Class/function` + source; gold = the benchmark's
@@ -35,7 +56,7 @@ How each row was run:
 - **LocBench.** All three models: sentence-transformers, fp16. Qwen3's Lite (vLLM bf16) and LocBench
   (sentence-transformers fp16) numbers were not cross-checked against each other.
 
-### SWE-Bench-Lite (274 issues)
+### v0.1: SWE-Bench-Lite (274 issues)
 
 | Model | Licence | Params | Acc@5 | Acc@10 | Acc@20 | File Acc@1 |
 |---|---|---|---|---|---|---|
@@ -54,7 +75,7 @@ which may understate them.
 Paper-reported for the references (Acc@5 / Acc@10): CodeRankEmbed 51.82 / 58.76, SweRankEmbed-Small
 63.14 / 74.45 (SweRank Table 1), Qwen3-Embedding-0.6B 52.55 / 62.77 (SweRank Table 9).
 
-### LocBench (Loc-Bench V1, a second benchmark, not used for tuning)
+### v0.1: LocBench (Loc-Bench V1, a second benchmark, not used for tuning)
 
 Headline numbers are on 552 of the 560 issues: the 6 `Qiskit/qiskit` and 2 `sktime/sktime` issues were excluded
 before scoring because the training data contains a renamed copy (`Qiskit/qiskit-terra`) or a fork (`aeon-toolkit/aeon`) of
@@ -109,7 +130,7 @@ Most of the gain needs the unit format used in training (path line first). With 
 shrinks to about 5 points. General docstring-to-code search gets slightly worse. One training repository
 (`apache/airflow`) also appears in the CodeSearchNet corpus.
 
-## Evaluation hygiene
+## Evaluation hygiene (v0.1; v0.2: see the model card)
 
 - **One training run, one model family.** The model was trained once (seed 0; a second run with the same seed
   gave the same evaluation metrics). The confidence intervals above come from resampling the benchmark issues
@@ -152,12 +173,14 @@ shrinks to about 5 points. General docstring-to-code search gets slightly worse.
 
 ## Usage
 
-The model has the same architecture and tokenizer as CodeRankEmbed (CLS pooling, normalised embeddings).
+The model has the same architecture and tokenizer as CodeRankEmbed (CLS pooling, normalised embeddings). This
+example loads v0.1 (the version described above); without `revision` it loads the current version (v0.2, see the
+model card for its unit format in other languages).
 
 ```python
 from sentence_transformers import SentenceTransformer
 
-model = SentenceTransformer("ickma2311/issue-loc-embed-small", trust_remote_code=True)
+model = SentenceTransformer("ickma2311/issue-loc-embed-small", revision="v0.1", trust_remote_code=True)
 units = ["pkg/module.py/MyClass/method\nclass MyClass:    def method(self, ...):\n        ...",
          "pkg/util.py/helper\ndef helper(x):\n    ..."]
 model.max_seq_length = 1024   # queries, as evaluated
@@ -221,6 +244,26 @@ The LateOn baselines use a third environment (`.[lateon]`: pylate 1.6.0, transfo
 5. **Data checks**: `scripts/checks/` (fork / rename check of the training repositories via `gh api`, overlap with
    LocBench, pinned dataset revisions).
 
+**v0.2** (Python + 8 languages; we ran the GPU steps on Kaggle T4 x2, about 16 GPU hours for training):
+
+1. Task selection: `python -I scripts/select_ml.py <SWE-rebench-V2 parquet @10483de> . <out>` (needs `gh`) writes
+   `<out>/tasks_ml.json` and `<out>/leakage.json`; our output is shipped as `data/tasks_ml_v02.json`, which the next
+   step reads.
+2. Multi-language data (CPU; `pip install tree-sitter==0.25.2 tree-sitter-language-pack==1.22.1`):
+   `OUT_DIR=build_ml python build_data_ml.py --tasks data/tasks_ml_v02.json --workers 12`.
+3. Merge with the v0.1 Python build (step 1 above): `INPUT_ROOT=<folder with both outputs> OUT_DIR=merged python
+   merge_data.py` (33,338 tasks, 3,440,484 texts).
+4. Round 1: `EVAL_SET=paper MINE_LOWMEM=1 python gpu_run.py mine --model B0 --rep R1 --name it1 --data-root merged`,
+   then `EVAL_SET=paper python gpu_run.py train --inst out/inst_it1.parquet --out-pt out/M1.pt --gpu 0
+   --steps-file out/steps_it1.json --role leader --max-min 100000 --max-steps 604 --data-root merged`.
+5. Round 2: `EVAL_SET=paper MINE_LOWMEM=1 python gpu_run.py mine --model out/M1.pt --rep R1 --name it2
+   --keep-from out/kept_it1.json --data-root merged`, then the same `train` command with `--inst out/inst_it2.parquet
+   --out-pt out/M2.pt --role follower`.
+6. Model directory: `python scripts/make_model_dir.py out/M2.pt <release dir> <eval_*_paper dir> <out dir>`.
+7. Evaluation: `OUT_DIR=ml python build_multilang.py` (CPU; SWE-bench Multilingual from
+   `mteb/SWEbenchMultilingualRR` @2129d0f), then `eval_st.py --set ml|lite|locb --model V02|REL|B0`, then
+   `python -I compare_v02.py <results dir> <ml_tasks.parquet>`.
+
 Training: InfoNCE over all in-batch positives and 15 mined hard negatives per (issue, positive function) pair,
 batch 64, lr 2e-5, temperature 0.05, fp16 with GradCache, 286 steps per round (about 43% of an epoch over the
 43,068 filtered pairs; SweRank trains two epochs). Consistency filter: keep a pair if its positive ranks within
@@ -238,14 +281,20 @@ differences near the cut-off (the original list was not kept, so this was not ch
   file `data/train_pointers.parquet` (instance ids, repositories, commits, derived function ids) is adapted from
   `nebius/SWE-rebench` and `nebius/SWE-rebench-V2` (Nebius, CC-BY-4.0,
   https://creativecommons.org/licenses/by/4.0/; changes: row selection and derived function ids) and is
-  distributed under CC-BY-4.0.
+  distributed under CC-BY-4.0. The v0.2 pointer file `data/train_pointers_v02.parquet` has 18,784 Python rows,
+  taken over from the v0.1 pointers (same sources and revisions as v0.1, see `scripts/checks/hf_revisions.json`),
+  and 14,554 rows in 8 other languages adapted from `nebius/SWE-rebench-V2` revision
+  `10483de0f50fe5da545942705a76c6150171af7f`; `data/tasks_ml_v02.json` lists the selected V2 instance ids. Same
+  changes (row selection and derived function ids) and the same licence (CC-BY-4.0).
+- Build dependencies tree-sitter and tree-sitter-language-pack (MIT) are installed with pip, not included.
 - Evaluation data (SWE-bench Lite, LocAgent's labels, Loc-Bench V1) is used for evaluation only; see NOTICE.
 - SweRank code and weights (CC-BY-NC-4.0) were not used for training, filtering or mining;
   SweRankEmbed-Small was only evaluated as a reference.
 
 ## Limitations
 
-- Trained on Python repositories only; evaluated on SWE-Bench-Lite and LocBench (Python).
+- v0.1: trained on Python repositories only; evaluated on SWE-Bench-Lite and LocBench (Python). v0.2 limits: see
+  the model card.
 - The gain depends on the unit format: +12.8 Acc@10 on SWE-Bench-Lite with the `path/Class/function` line, +5.1
   with source code only. Use the format shown in Usage.
 - Slightly worse than the start point on general docstring-to-code search (CodeSearchNet Python nDCG@10

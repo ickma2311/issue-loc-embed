@@ -1,0 +1,1696 @@
+{
+ "n": 234,
+ "languages": {
+  "Java": 41,
+  "PHP": 40,
+  "Ruby": 36,
+  "Rust": 34,
+  "Go": 29,
+  "C": 26,
+  "JavaScript": 24,
+  "TypeScript": 3,
+  "C++": 1
+ },
+ "repos": [
+  "apache/druid",
+  "apache/lucene",
+  "astral-sh/ruff",
+  "axios/axios",
+  "briannesbitt/carbon",
+  "burntsushi/ripgrep",
+  "caddyserver/caddy",
+  "facebook/docusaurus",
+  "faker-ruby/faker",
+  "fastlane/fastlane",
+  "fluent/fluentd",
+  "gin-gonic/gin",
+  "gohugoio/hugo",
+  "google/gson",
+  "hashicorp/terraform",
+  "immutable-js/immutable-js",
+  "javaparser/javaparser",
+  "jekyll/jekyll",
+  "jordansissel/fpm",
+  "jqlang/jq",
+  "laravel/framework",
+  "micropython/micropython",
+  "mrdoob/three.js",
+  "nlohmann/json",
+  "nushell/nushell",
+  "php-cs-fixer/php-cs-fixer",
+  "phpoffice/phpspreadsheet",
+  "preactjs/preact",
+  "projectlombok/lombok",
+  "prometheus/prometheus",
+  "reactivex/rxjava",
+  "redis/redis",
+  "rubocop/rubocop",
+  "sharkdp/bat",
+  "tokio-rs/axum",
+  "tokio-rs/tokio",
+  "uutils/coreutils",
+  "valkey-io/valkey"
+ ],
+ "n_repos": 38,
+ "training_overlap_by_name": [],
+ "queries": {
+  "train_query0": {
+   "instance_id": "rubocop__rubocop-13579",
+   "repo": "rubocop/rubocop",
+   "language": "Ruby",
+   "base_commit": "c5ac2b9a31dbe8dac520ecf4307b1ac206a65630",
+   "created_at": "2024-12-12 15:06:53"
+  },
+  "train_query1": {
+   "instance_id": "faker-ruby__faker-2705",
+   "repo": "faker-ruby/faker",
+   "language": "Ruby",
+   "base_commit": "4d52bc1e148d5290da10cb2775e244e0023778b0",
+   "created_at": "2023-02-10 16:24:10"
+  },
+  "train_query2": {
+   "instance_id": "jqlang__jq-2728",
+   "repo": "jqlang/jq",
+   "language": "C",
+   "base_commit": "87e3dfddb80015bd71259a4a295ca73bed398bd2",
+   "created_at": "2023-07-19 00:29:13"
+  },
+  "train_query3": {
+   "instance_id": "laravel__framework-52684",
+   "repo": "laravel/framework",
+   "language": "PHP",
+   "base_commit": "455598c577fab3898e1d84ddbaa142780c8b192d",
+   "created_at": "2024-09-06 15:45:48"
+  },
+  "train_query4": {
+   "instance_id": "tokio-rs__axum-2096",
+   "repo": "tokio-rs/axum",
+   "language": "Rust",
+   "base_commit": "6f7ff8556587d51c6919a864926e4b8090f92c3f",
+   "created_at": "2023-07-16 00:13:44"
+  },
+  "train_query5": {
+   "instance_id": "apache__lucene-12196",
+   "repo": "apache/lucene",
+   "language": "Java",
+   "base_commit": "0651d25713dde144df6541663b18accbc93cdc64",
+   "created_at": "2023-03-08 14:13:50"
+  },
+  "train_query6": {
+   "instance_id": "fluent__fluentd-4655",
+   "repo": "fluent/fluentd",
+   "language": "Ruby",
+   "base_commit": "6f5ea8971d1c9aa5cad29bf6aaf24789e868f842",
+   "created_at": "2024-10-03 16:05:41"
+  },
+  "train_query7": {
+   "instance_id": "php-cs-fixer__php-cs-fixer-8064",
+   "repo": "php-cs-fixer/php-cs-fixer",
+   "language": "PHP",
+   "base_commit": "c3dbbcfd7f9a8a7cd38d2107790f29479a33ad78",
+   "created_at": "2024-06-03 20:25:30"
+  },
+  "train_query8": {
+   "instance_id": "google__gson-2479",
+   "repo": "google/gson",
+   "language": "Java",
+   "base_commit": "4dfae77af3d543bea2782f85a154cc070290f086",
+   "created_at": "2023-08-25 19:28:05"
+  },
+  "train_query9": {
+   "instance_id": "astral-sh__ruff-15626",
+   "repo": "astral-sh/ruff",
+   "language": "Rust",
+   "base_commit": "13a6b5600b47489ca6af0b5a13d916bda8e50662",
+   "created_at": "2025-01-21 01:33:37"
+  },
+  "train_query10": {
+   "instance_id": "php-cs-fixer__php-cs-fixer-7635",
+   "repo": "php-cs-fixer/php-cs-fixer",
+   "language": "PHP",
+   "base_commit": "826207ac6996fc1cf433e18476cf898e33c4aa06",
+   "created_at": "2023-12-29 01:41:39"
+  },
+  "train_query11": {
+   "instance_id": "fluent__fluentd-4030",
+   "repo": "fluent/fluentd",
+   "language": "Ruby",
+   "base_commit": "a5bf404134f98f32c5cbcbc2f0989d9f88542853",
+   "created_at": "2023-01-27 09:58:28"
+  },
+  "train_query12": {
+   "instance_id": "prometheus__prometheus-12874",
+   "repo": "prometheus/prometheus",
+   "language": "Go",
+   "base_commit": "9071913fd99fcdea9ea069b277f2be66b08e549c",
+   "created_at": "2023-09-20 12:33:44"
+  },
+  "train_query13": {
+   "instance_id": "rubocop__rubocop-13653",
+   "repo": "rubocop/rubocop",
+   "language": "Ruby",
+   "base_commit": "34beb4adc7d00bf828031783d860441c1aed659a",
+   "created_at": "2025-01-06 20:03:07"
+  },
+  "train_query14": {
+   "instance_id": "php-cs-fixer__php-cs-fixer-7875",
+   "repo": "php-cs-fixer/php-cs-fixer",
+   "language": "PHP",
+   "base_commit": "18d9e42f276f65ba45da02597191ce555bf23cd0",
+   "created_at": "2024-03-10 16:20:27"
+  },
+  "train_query15": {
+   "instance_id": "prometheus__prometheus-10633",
+   "repo": "prometheus/prometheus",
+   "language": "Go",
+   "base_commit": "64fc3e58fec13af55968db89a484b9e0c5425bd6",
+   "created_at": "2022-04-26 11:51:30"
+  },
+  "train_query16": {
+   "instance_id": "nushell__nushell-13831",
+   "repo": "nushell/nushell",
+   "language": "Rust",
+   "base_commit": "fb34a4fc6c9ca882cc6dc95d437902a45c402e9a",
+   "created_at": "2024-09-11 20:01:42"
+  },
+  "train_query17": {
+   "instance_id": "rubocop__rubocop-13687",
+   "repo": "rubocop/rubocop",
+   "language": "Ruby",
+   "base_commit": "f0ec1b58283bbf89625883b45d2aec5e515c95b3",
+   "created_at": "2025-01-13 16:38:22"
+  },
+  "train_query18": {
+   "instance_id": "laravel__framework-53696",
+   "repo": "laravel/framework",
+   "language": "PHP",
+   "base_commit": "9ec9479e8e10d766eeeb85a3bdd451a505abf8ec",
+   "created_at": "2024-11-28 10:31:22"
+  },
+  "train_query19": {
+   "instance_id": "caddyserver__caddy-5626",
+   "repo": "caddyserver/caddy",
+   "language": "Go",
+   "base_commit": "0e2c7e1d35b287fc0e56d6db2951f791e09b5a37",
+   "created_at": "2023-07-12 03:02:29"
+  },
+  "train_query20": {
+   "instance_id": "apache__druid-16875",
+   "repo": "apache/druid",
+   "language": "Java",
+   "base_commit": "483a03f26c7221f10493d86715985a58e61af967",
+   "created_at": "2024-08-09 07:04:27"
+  },
+  "train_query21": {
+   "instance_id": "google__gson-2134",
+   "repo": "google/gson",
+   "language": "Java",
+   "base_commit": "96ab171eb48dcea94fd9b8f425f65c531e6c3aad",
+   "created_at": "2022-06-12 20:12:27"
+  },
+  "train_query22": {
+   "instance_id": "preactjs__preact-3739",
+   "repo": "preactjs/preact",
+   "language": "JavaScript",
+   "base_commit": "2cafedee2ddf7c73795e887ef1970df4be2bca90",
+   "created_at": "2022-09-19 13:54:47"
+  },
+  "train_query23": {
+   "instance_id": "jekyll__jekyll-8047",
+   "repo": "jekyll/jekyll",
+   "language": "Ruby",
+   "base_commit": "ab6ef0b257e4c7aafec0518d93bea3e9c4b75b75",
+   "created_at": "2020-03-06 11:52:28"
+  },
+  "train_query24": {
+   "instance_id": "javaparser__javaparser-4561",
+   "repo": "javaparser/javaparser",
+   "language": "Java",
+   "base_commit": "5be2e76b62e43b3c524b94463afe2294ac419fc8",
+   "created_at": "2024-09-24 13:40:31"
+  },
+  "train_query25": {
+   "instance_id": "sharkdp__bat-562",
+   "repo": "sharkdp/bat",
+   "language": "Rust",
+   "base_commit": "2b9d25df052e50c60531b1000703b79bf9b6065a",
+   "created_at": "2019-05-10 19:03:15"
+  },
+  "train_query26": {
+   "instance_id": "rubocop__rubocop-13627",
+   "repo": "rubocop/rubocop",
+   "language": "Ruby",
+   "base_commit": "020c1bf13b25b7ec5f15ac467c7538eba3cef0b4",
+   "created_at": "2024-12-26 07:19:09"
+  },
+  "train_query27": {
+   "instance_id": "projectlombok__lombok-3215",
+   "repo": "projectlombok/lombok",
+   "language": "Java",
+   "base_commit": "f090e50d0d5d75c121b6170927b1e776160eb37d",
+   "created_at": "2022-06-17 10:44:09"
+  },
+  "train_query28": {
+   "instance_id": "fastlane__fastlane-20642",
+   "repo": "fastlane/fastlane",
+   "language": "Ruby",
+   "base_commit": "950bb820237d52e15690408083e328f739ac0ef3",
+   "created_at": "2022-09-10 11:00:24"
+  },
+  "train_query29": {
+   "instance_id": "prometheus__prometheus-9248",
+   "repo": "prometheus/prometheus",
+   "language": "Go",
+   "base_commit": "1fb3c1b5980d2ae3f844b6b9ae2ad38117710aa0",
+   "created_at": "2021-08-25 00:08:41"
+  },
+  "train_query30": {
+   "instance_id": "briannesbitt__carbon-3103",
+   "repo": "briannesbitt/carbon",
+   "language": "PHP",
+   "base_commit": "d481d8d69a94dc00e5c1b147ec1f7e7492626b12",
+   "created_at": "2024-11-07 17:38:38"
+  },
+  "train_query31": {
+   "instance_id": "hashicorp__terraform-35611",
+   "repo": "hashicorp/terraform",
+   "language": "Go",
+   "base_commit": "047c1af0b4a9e1e650f3811d011bcb92b2ceb15a",
+   "created_at": "2024-08-19 15:55:10"
+  },
+  "train_query32": {
+   "instance_id": "preactjs__preact-3345",
+   "repo": "preactjs/preact",
+   "language": "JavaScript",
+   "base_commit": "e0e17046753fe09881dfb8d5a69b44933d1fa1ea",
+   "created_at": "2021-11-26 00:15:46"
+  },
+  "train_query33": {
+   "instance_id": "projectlombok__lombok-3486",
+   "repo": "projectlombok/lombok",
+   "language": "Java",
+   "base_commit": "28e5ddb075b61525ba686f3ed6ecbf7f762fc558",
+   "created_at": "2023-08-21 04:59:10"
+  },
+  "train_query34": {
+   "instance_id": "caddyserver__caddy-5404",
+   "repo": "caddyserver/caddy",
+   "language": "Go",
+   "base_commit": "960150bb034dc9a549ee7289b1a4eb4abafeb30a",
+   "created_at": "2023-02-26 20:33:33"
+  },
+  "train_query35": {
+   "instance_id": "astral-sh__ruff-15443",
+   "repo": "astral-sh/ruff",
+   "language": "Rust",
+   "base_commit": "d1666fbbeec27fe534f261f388fbd5891546ffcf",
+   "created_at": "2025-01-12 16:49:45"
+  },
+  "train_query36": {
+   "instance_id": "axios__axios-5892",
+   "repo": "axios/axios",
+   "language": "JavaScript",
+   "base_commit": "ae003913a39f3bdf9bbbd8f71a1ed681fd044d8b",
+   "created_at": "2023-09-12 11:58:18"
+  },
+  "train_query37": {
+   "instance_id": "astral-sh__ruff-15309",
+   "repo": "astral-sh/ruff",
+   "language": "Rust",
+   "base_commit": "75a24bbc67aa31b825b6326cfb6e6afdf3ca90d5",
+   "created_at": "2025-01-07 02:42:17"
+  },
+  "train_query38": {
+   "instance_id": "briannesbitt__carbon-3005",
+   "repo": "briannesbitt/carbon",
+   "language": "PHP",
+   "base_commit": "640940f4a9303e458fc29341821395460f32b3b5",
+   "created_at": "2024-04-23 12:33:02"
+  },
+  "train_query39": {
+   "instance_id": "apache__lucene-13494",
+   "repo": "apache/lucene",
+   "language": "Java",
+   "base_commit": "ab291210db08276fef1b52bf7b840d431e96ce08",
+   "created_at": "2024-06-17 12:54:11"
+  },
+  "train_query40": {
+   "instance_id": "phpoffice__phpspreadsheet-3469",
+   "repo": "phpoffice/phpspreadsheet",
+   "language": "PHP",
+   "base_commit": "e4a770eae9e1751314296ca4342b3c6271c9ba13",
+   "created_at": "2023-03-19 16:18:49"
+  },
+  "train_query41": {
+   "instance_id": "projectlombok__lombok-3052",
+   "repo": "projectlombok/lombok",
+   "language": "Java",
+   "base_commit": "ff7b1fbb438dbb378f9e0f725ed5f80fa7b82f55",
+   "created_at": "2021-12-01 08:48:45"
+  },
+  "train_query42": {
+   "instance_id": "sharkdp__bat-2393",
+   "repo": "sharkdp/bat",
+   "language": "Rust",
+   "base_commit": "7c847d84b0c3c97df6badfbb39d153ad93aec74e",
+   "created_at": "2022-11-03 02:35:54"
+  },
+  "train_query43": {
+   "instance_id": "prometheus__prometheus-11859",
+   "repo": "prometheus/prometheus",
+   "language": "Go",
+   "base_commit": "5ec1b4baaf01dae0b22567db53886c83b74e0e76",
+   "created_at": "2023-01-17 19:39:09"
+  },
+  "train_query44": {
+   "instance_id": "sharkdp__bat-3108",
+   "repo": "sharkdp/bat",
+   "language": "Rust",
+   "base_commit": "2be3a14a7e2c74360765a5fa213750f727f2c5bb",
+   "created_at": "2024-10-18 10:33:56"
+  },
+  "train_query45": {
+   "instance_id": "apache__druid-14092",
+   "repo": "apache/druid",
+   "language": "Java",
+   "base_commit": "4fffee17761286996a8c43154b72db4bcaafb16d",
+   "created_at": "2023-04-14 21:01:40"
+  },
+  "train_query46": {
+   "instance_id": "google__gson-1100",
+   "repo": "google/gson",
+   "language": "Java",
+   "base_commit": "f0aa1118e9ef66ed324f9a63cdfb551cb4e9eca5",
+   "created_at": "2017-06-08 16:46:09"
+  },
+  "train_query47": {
+   "instance_id": "laravel__framework-46234",
+   "repo": "laravel/framework",
+   "language": "PHP",
+   "base_commit": "3799f7f3118d57dc5d3dfaabde69a912fff65a7e",
+   "created_at": "2023-02-23 07:02:26"
+  },
+  "train_query48": {
+   "instance_id": "apache__lucene-11760",
+   "repo": "apache/lucene",
+   "language": "Java",
+   "base_commit": "0ea8035612344e861bbdeaffca2255e5e1480a6a",
+   "created_at": "2022-09-09 14:36:21"
+  },
+  "train_query49": {
+   "instance_id": "preactjs__preact-3454",
+   "repo": "preactjs/preact",
+   "language": "JavaScript",
+   "base_commit": "00c8d1ff1498084c15408cf0014d4c7facdb5dd7",
+   "created_at": "2022-02-15 22:06:30"
+  },
+  "train_query50": {
+   "instance_id": "fluent__fluentd-3917",
+   "repo": "fluent/fluentd",
+   "language": "Ruby",
+   "base_commit": "c0f1db966a2809a13de217b0ec0adc9a29decc79",
+   "created_at": "2022-10-13 07:48:35"
+  },
+  "train_query51": {
+   "instance_id": "faker-ruby__faker-2970",
+   "repo": "faker-ruby/faker",
+   "language": "Ruby",
+   "base_commit": "37a7ea2cdceae530d79197d887a347a877cd3dd4",
+   "created_at": "2024-06-19 17:27:35"
+  },
+  "train_query52": {
+   "instance_id": "caddyserver__caddy-6051",
+   "repo": "caddyserver/caddy",
+   "language": "Go",
+   "base_commit": "4181c79a8130a59c40c76437e15265452422ccb1",
+   "created_at": "2024-01-18 22:01:13"
+  },
+  "train_query53": {
+   "instance_id": "fluent__fluentd-3466",
+   "repo": "fluent/fluentd",
+   "language": "Ruby",
+   "base_commit": "d2867c02472185f610a49cff1cf39c491df1039b",
+   "created_at": "2021-07-24 16:12:49"
+  },
+  "train_query54": {
+   "instance_id": "nushell__nushell-13246",
+   "repo": "nushell/nushell",
+   "language": "Rust",
+   "base_commit": "46ed69ab126015375d5163972ae321715f34874b",
+   "created_at": "2024-06-27 08:47:46"
+  },
+  "train_query55": {
+   "instance_id": "facebook__docusaurus-9183",
+   "repo": "facebook/docusaurus",
+   "language": "TypeScript",
+   "base_commit": "b96004e77ebfb23e7349fa495d2177008186bd42",
+   "created_at": "2023-07-28 08:43:19"
+  },
+  "train_query56": {
+   "instance_id": "laravel__framework-48636",
+   "repo": "laravel/framework",
+   "language": "PHP",
+   "base_commit": "4a9ae49f3969c4648b5ee000e6692a449e34c2a8",
+   "created_at": "2023-10-05 06:47:22"
+  },
+  "train_query57": {
+   "instance_id": "google__gson-1093",
+   "repo": "google/gson",
+   "language": "Java",
+   "base_commit": "0aaef0fd1bb1b9729543dc40168adfb829eb75a4",
+   "created_at": "2017-05-31 08:22:46"
+  },
+  "train_query58": {
+   "instance_id": "gin-gonic__gin-2121",
+   "repo": "gin-gonic/gin",
+   "language": "Go",
+   "base_commit": "2ee0e963942d91be7944dfcc07dc8c02a4a78566",
+   "created_at": "2019-11-03 22:16:36"
+  },
+  "train_query59": {
+   "instance_id": "sharkdp__bat-2835",
+   "repo": "sharkdp/bat",
+   "language": "Rust",
+   "base_commit": "db66e4459bc4e66c03629d7cbc235f59245280c0",
+   "created_at": "2024-01-21 16:24:00"
+  },
+  "train_query60": {
+   "instance_id": "tokio-rs__axum-682",
+   "repo": "tokio-rs/axum",
+   "language": "Rust",
+   "base_commit": "5512ebcd23d261a2be5ee07676721b7637ffc054",
+   "created_at": "2022-01-01 02:57:12"
+  },
+  "train_query61": {
+   "instance_id": "fluent__fluentd-3631",
+   "repo": "fluent/fluentd",
+   "language": "Ruby",
+   "base_commit": "e890533484dfb7d4546f68a84fdff9a98fb459bd",
+   "created_at": "2022-02-14 09:21:20"
+  },
+  "train_query62": {
+   "instance_id": "micropython__micropython-13039",
+   "repo": "micropython/micropython",
+   "language": "C",
+   "base_commit": "fce8d9fd55409ab1027beee5671bc653fb5beb97",
+   "created_at": "2023-11-21 11:33:55"
+  },
+  "train_query63": {
+   "instance_id": "apache__lucene-12022",
+   "repo": "apache/lucene",
+   "language": "Java",
+   "base_commit": "11f2bc205652f1f2b2f61ba286cbfd2d77fd2d1b",
+   "created_at": "2022-12-15 11:05:42"
+  },
+  "train_query64": {
+   "instance_id": "preactjs__preact-4316",
+   "repo": "preactjs/preact",
+   "language": "JavaScript",
+   "base_commit": "b820d8b73eade8bc5b3fbf7e5fe0dd5150de80e2",
+   "created_at": "2024-03-21 11:31:39"
+  },
+  "train_query65": {
+   "instance_id": "fluent__fluentd-3328",
+   "repo": "fluent/fluentd",
+   "language": "Ruby",
+   "base_commit": "07df9a0d850a4f03d95ac82e3d818a90631ad9d3",
+   "created_at": "2021-04-13 01:34:59"
+  },
+  "train_query66": {
+   "instance_id": "jqlang__jq-2681",
+   "repo": "jqlang/jq",
+   "language": "C",
+   "base_commit": "c08ecbaf239592018a2050b8515040d4a9f2e7aa",
+   "created_at": "2023-07-09 18:45:41"
+  },
+  "train_query67": {
+   "instance_id": "astral-sh__ruff-15543",
+   "repo": "astral-sh/ruff",
+   "language": "Rust",
+   "base_commit": "3950b00ee410754913122e8104cbc39353b62c0b",
+   "created_at": "2025-01-17 00:27:12"
+  },
+  "train_query68": {
+   "instance_id": "briannesbitt__carbon-2752",
+   "repo": "briannesbitt/carbon",
+   "language": "PHP",
+   "base_commit": "09acf64155c16dc6f580f36569ae89344e9734a3",
+   "created_at": "2023-01-09 17:28:43"
+  },
+  "train_query69": {
+   "instance_id": "redis__redis-12272",
+   "repo": "redis/redis",
+   "language": "C",
+   "base_commit": "7f0a7f0a69318788edeca5a55ce05e278fdaa90b",
+   "created_at": "2023-06-06 15:13:41"
+  },
+  "train_query70": {
+   "instance_id": "php-cs-fixer__php-cs-fixer-7523",
+   "repo": "php-cs-fixer/php-cs-fixer",
+   "language": "PHP",
+   "base_commit": "10fb65e3e8b8645f74f6ab099dfa11ce5ac5cfcd",
+   "created_at": "2023-12-08 08:35:50"
+  },
+  "train_query71": {
+   "instance_id": "caddyserver__caddy-6345",
+   "repo": "caddyserver/caddy",
+   "language": "Go",
+   "base_commit": "f6d2c293e752254769efe21c8d06a16ebad4845e",
+   "created_at": "2024-05-27 18:46:06"
+  },
+  "train_query72": {
+   "instance_id": "caddyserver__caddy-4943",
+   "repo": "caddyserver/caddy",
+   "language": "Go",
+   "base_commit": "7f6a328b4744bbdd5ee07c5eccb3f897390ff982",
+   "created_at": "2022-08-08 23:55:07"
+  },
+  "train_query73": {
+   "instance_id": "preactjs__preact-2896",
+   "repo": "preactjs/preact",
+   "language": "JavaScript",
+   "base_commit": "a9f7e676dc03b5008b8483e0937fc27c1af8287f",
+   "created_at": "2021-01-01 02:27:31"
+  },
+  "train_query74": {
+   "instance_id": "google__gson-2158",
+   "repo": "google/gson",
+   "language": "Java",
+   "base_commit": "796193d0326a2f44bc314bf24262732ea3e64014",
+   "created_at": "2022-07-26 15:20:13"
+  },
+  "train_query75": {
+   "instance_id": "gohugoio__hugo-12171",
+   "repo": "gohugoio/hugo",
+   "language": "Go",
+   "base_commit": "a322282e70c2935c79f9c0f5c593bfdd032eb964",
+   "created_at": "2024-02-28 15:12:28"
+  },
+  "train_query76": {
+   "instance_id": "projectlombok__lombok-3009",
+   "repo": "projectlombok/lombok",
+   "language": "Java",
+   "base_commit": "8bbac04478cb088eedceb4c63dcb45e30f0948ed",
+   "created_at": "2021-10-22 08:20:44"
+  },
+  "train_query77": {
+   "instance_id": "immutable-js__immutable-js-2005",
+   "repo": "immutable-js/immutable-js",
+   "language": "JavaScript",
+   "base_commit": "77434b3cbbc8ee21206f4cc6965e1c9b09cc92b6",
+   "created_at": "2024-07-22 09:22:26"
+  },
+  "train_query78": {
+   "instance_id": "projectlombok__lombok-3042",
+   "repo": "projectlombok/lombok",
+   "language": "Java",
+   "base_commit": "5155060ddf48b683a902b9d354d0fd07df7a79a1",
+   "created_at": "2021-11-22 20:56:49"
+  },
+  "train_query79": {
+   "instance_id": "uutils__coreutils-6682",
+   "repo": "uutils/coreutils",
+   "language": "Rust",
+   "base_commit": "b89a6255a9cb5ee09867707f395d02929273dc45",
+   "created_at": "2024-09-07 18:33:03"
+  },
+  "train_query80": {
+   "instance_id": "nlohmann__json-4237",
+   "repo": "nlohmann/json",
+   "language": "C++",
+   "base_commit": "3780b41dd070436f3f55327b0a88f27a52e2dfa8",
+   "created_at": "2023-12-08 22:24:37"
+  },
+  "train_query81": {
+   "instance_id": "mrdoob__three.js-25687",
+   "repo": "mrdoob/three.js",
+   "language": "JavaScript",
+   "base_commit": "114134e195a451fdbaa8d2e9492d869d5c853814",
+   "created_at": "2023-03-17 09:29:48"
+  },
+  "train_query82": {
+   "instance_id": "apache__druid-15402",
+   "repo": "apache/druid",
+   "language": "Java",
+   "base_commit": "1df53d6eb30a019fff69a5ff7533ebbd998a438d",
+   "created_at": "2023-11-20 13:48:30"
+  },
+  "train_query83": {
+   "instance_id": "gin-gonic__gin-3820",
+   "repo": "gin-gonic/gin",
+   "language": "Go",
+   "base_commit": "9f598a31aafb92d675f38f1c8371e4ac76f858bf",
+   "created_at": "2024-01-04 01:49:47"
+  },
+  "train_query84": {
+   "instance_id": "php-cs-fixer__php-cs-fixer-7663",
+   "repo": "php-cs-fixer/php-cs-fixer",
+   "language": "PHP",
+   "base_commit": "c5cde0cf7542234dc061af8a25f77fcdad430e35",
+   "created_at": "2024-01-02 19:38:30"
+  },
+  "train_query85": {
+   "instance_id": "fluent__fluentd-3640",
+   "repo": "fluent/fluentd",
+   "language": "Ruby",
+   "base_commit": "8ced42ce86edf5a5c73e009cfd093e6c3fcc7e2d",
+   "created_at": "2022-02-22 15:11:48"
+  },
+  "train_query86": {
+   "instance_id": "php-cs-fixer__php-cs-fixer-8331",
+   "repo": "php-cs-fixer/php-cs-fixer",
+   "language": "PHP",
+   "base_commit": "ae2b729efb3507871ddf501424b1a92db4e5b16a",
+   "created_at": "2024-12-26 17:33:20"
+  },
+  "train_query87": {
+   "instance_id": "preactjs__preact-4436",
+   "repo": "preactjs/preact",
+   "language": "JavaScript",
+   "base_commit": "db0f4f2e7a2338ea40050f623f05505a798fc1a4",
+   "created_at": "2024-07-06 22:32:36"
+  },
+  "train_query88": {
+   "instance_id": "fluent__fluentd-3608",
+   "repo": "fluent/fluentd",
+   "language": "Ruby",
+   "base_commit": "a60603346483da721799ccb3faebcbdd757c5f16",
+   "created_at": "2022-01-24 04:36:16"
+  },
+  "train_query89": {
+   "instance_id": "rubocop__rubocop-13431",
+   "repo": "rubocop/rubocop",
+   "language": "Ruby",
+   "base_commit": "33b9f51cc0bdad7585a855018625c155493664ec",
+   "created_at": "2024-11-07 13:15:28"
+  },
+  "train_query90": {
+   "instance_id": "projectlombok__lombok-3594",
+   "repo": "projectlombok/lombok",
+   "language": "Java",
+   "base_commit": "2773ed5943f3ca3055c915dda325b0503944e9b0",
+   "created_at": "2024-01-23 11:18:07"
+  },
+  "train_query91": {
+   "instance_id": "burntsushi__ripgrep-2209",
+   "repo": "burntsushi/ripgrep",
+   "language": "Rust",
+   "base_commit": "4dc6c73c5a9203c5a8a89ce2161feca542329812",
+   "created_at": "2022-05-11 18:30:12"
+  },
+  "train_query92": {
+   "instance_id": "nushell__nushell-12950",
+   "repo": "nushell/nushell",
+   "language": "Rust",
+   "base_commit": "0c5a67f4e5bf17a2fffbe3cbb54792a6464b3237",
+   "created_at": "2024-05-24 10:29:47"
+  },
+  "train_query93": {
+   "instance_id": "tokio-rs__tokio-6752",
+   "repo": "tokio-rs/tokio",
+   "language": "Rust",
+   "base_commit": "ab53bf0c4727ae63c6a3a3d772b7bd837d2f49c3",
+   "created_at": "2024-08-06 13:16:59"
+  },
+  "train_query94": {
+   "instance_id": "hashicorp__terraform-34814",
+   "repo": "hashicorp/terraform",
+   "language": "Go",
+   "base_commit": "310331bdc6b747b68b2e2dd6be257dfc78677973",
+   "created_at": "2024-03-11 16:19:34"
+  },
+  "train_query95": {
+   "instance_id": "projectlombok__lombok-2792",
+   "repo": "projectlombok/lombok",
+   "language": "Java",
+   "base_commit": "9b3e84717d301d7a6829420f5849cf1465e73131",
+   "created_at": "2021-03-25 18:53:44"
+  },
+  "train_query96": {
+   "instance_id": "sharkdp__bat-1892",
+   "repo": "sharkdp/bat",
+   "language": "Rust",
+   "base_commit": "59d4cfb75c1a17a26b2b38956ee08d8c53f04e04",
+   "created_at": "2021-10-09 19:15:07"
+  },
+  "train_query97": {
+   "instance_id": "redis__redis-10095",
+   "repo": "redis/redis",
+   "language": "C",
+   "base_commit": "1e25bdf7808bb400f2dc552ec0d6690d1b340d23",
+   "created_at": "2022-01-10 16:51:11"
+  },
+  "train_query98": {
+   "instance_id": "fastlane__fastlane-19304",
+   "repo": "fastlane/fastlane",
+   "language": "Ruby",
+   "base_commit": "9b6d47e74da8cf05a8993ec8b4c2c66a466ce358",
+   "created_at": "2021-08-27 20:43:02"
+  },
+  "train_query99": {
+   "instance_id": "php-cs-fixer__php-cs-fixer-8256",
+   "repo": "php-cs-fixer/php-cs-fixer",
+   "language": "PHP",
+   "base_commit": "27dde9afa3d4db851f8aaffc820f697a5dbe747f",
+   "created_at": "2024-10-21 19:17:33"
+  },
+  "train_query100": {
+   "instance_id": "tokio-rs__axum-734",
+   "repo": "tokio-rs/axum",
+   "language": "Rust",
+   "base_commit": "84df7eaa38aa38b3a4b4153678316c0700fc4fa8",
+   "created_at": "2022-01-31 11:31:09"
+  },
+  "train_query101": {
+   "instance_id": "caddyserver__caddy-6370",
+   "repo": "caddyserver/caddy",
+   "language": "Go",
+   "base_commit": "198f4385d2f72ccdd853825270f601bea7a7a190",
+   "created_at": "2024-06-04 06:55:59"
+  },
+  "train_query102": {
+   "instance_id": "redis__redis-11510",
+   "repo": "redis/redis",
+   "language": "C",
+   "base_commit": "a4bcdbcfd3a055eb6320f31e5c710931708a9501",
+   "created_at": "2022-11-15 04:15:10"
+  },
+  "train_query103": {
+   "instance_id": "fluent__fluentd-3616",
+   "repo": "fluent/fluentd",
+   "language": "Ruby",
+   "base_commit": "26c62cddbf236361b797eac498301c7d4a77d010",
+   "created_at": "2022-02-04 01:18:20"
+  },
+  "train_query104": {
+   "instance_id": "uutils__coreutils-6731",
+   "repo": "uutils/coreutils",
+   "language": "Rust",
+   "base_commit": "a4088475832957e070b8f904cd3a33a818d07d72",
+   "created_at": "2024-09-24 00:31:52"
+  },
+  "train_query105": {
+   "instance_id": "rubocop__rubocop-13560",
+   "repo": "rubocop/rubocop",
+   "language": "Ruby",
+   "base_commit": "fd13dabcae2ad9fdf228029671dee6f1ee96248a",
+   "created_at": "2024-12-09 04:45:44"
+  },
+  "train_query106": {
+   "instance_id": "google__gson-2061",
+   "repo": "google/gson",
+   "language": "Java",
+   "base_commit": "be0a1f4ff74bcd01580887cc9f3ec592d773f24c",
+   "created_at": "2022-01-23 01:03:06"
+  },
+  "train_query107": {
+   "instance_id": "caddyserver__caddy-5761",
+   "repo": "caddyserver/caddy",
+   "language": "Go",
+   "base_commit": "0a6d3333b2c92553e66c93c14d3258a790aac639",
+   "created_at": "2023-08-18 01:25:41"
+  },
+  "train_query108": {
+   "instance_id": "jqlang__jq-2750",
+   "repo": "jqlang/jq",
+   "language": "C",
+   "base_commit": "98f709d0c1fd87a8b6a3e10c679442667712b264",
+   "created_at": "2023-07-22 21:14:38"
+  },
+  "train_query109": {
+   "instance_id": "briannesbitt__carbon-3073",
+   "repo": "briannesbitt/carbon",
+   "language": "PHP",
+   "base_commit": "da64770bf83ac06914418db7df14dadd4ded0212",
+   "created_at": "2024-10-04 13:00:39"
+  },
+  "train_query110": {
+   "instance_id": "apache__lucene-13301",
+   "repo": "apache/lucene",
+   "language": "Java",
+   "base_commit": "0345fcabb3ceb71fb39c1aa77502bae220f259ca",
+   "created_at": "2024-04-14 11:17:15"
+  },
+  "train_query111": {
+   "instance_id": "gohugoio__hugo-12579",
+   "repo": "gohugoio/hugo",
+   "language": "Go",
+   "base_commit": "9c4e14eb4f890d2a3caad2dcd9209609b7274914",
+   "created_at": "2024-06-08 13:53:20"
+  },
+  "train_query112": {
+   "instance_id": "hashicorp__terraform-34900",
+   "repo": "hashicorp/terraform",
+   "language": "Go",
+   "base_commit": "f2e4cb411ed6dfd36fd4f9960a74d8f29c7b8882",
+   "created_at": "2024-03-28 15:47:18"
+  },
+  "train_query113": {
+   "instance_id": "caddyserver__caddy-6115",
+   "repo": "caddyserver/caddy",
+   "language": "Go",
+   "base_commit": "4512be49a9fa55270e9afa632be9ff6c9560c455",
+   "created_at": "2024-02-19 23:57:52"
+  },
+  "train_query114": {
+   "instance_id": "rubocop__rubocop-13362",
+   "repo": "rubocop/rubocop",
+   "language": "Ruby",
+   "base_commit": "7e82e44afdf65d585603a2b615e497eefa5b02a9",
+   "created_at": "2024-10-18 21:47:03"
+  },
+  "train_query115": {
+   "instance_id": "laravel__framework-51195",
+   "repo": "laravel/framework",
+   "language": "PHP",
+   "base_commit": "5362c4aa52beb83078b4c25d980f4d3ff1fff69e",
+   "created_at": "2024-04-24 08:46:49"
+  },
+  "train_query116": {
+   "instance_id": "gohugoio__hugo-12343",
+   "repo": "gohugoio/hugo",
+   "language": "Go",
+   "base_commit": "060cce0a910ffd9dc4e92efbe758fc5f187c3145",
+   "created_at": "2024-04-04 20:37:29"
+  },
+  "train_query117": {
+   "instance_id": "preactjs__preact-3567",
+   "repo": "preactjs/preact",
+   "language": "JavaScript",
+   "base_commit": "c77e6284c199761d59467d8cc596a2f03540e72c",
+   "created_at": "2022-06-14 14:44:56"
+  },
+  "train_query118": {
+   "instance_id": "micropython__micropython-15898",
+   "repo": "micropython/micropython",
+   "language": "C",
+   "base_commit": "b0ba151102a6c1b2e0e4c419c6482a64677c9b40",
+   "created_at": "2024-09-23 15:37:03"
+  },
+  "train_query119": {
+   "instance_id": "astral-sh__ruff-15394",
+   "repo": "astral-sh/ruff",
+   "language": "Rust",
+   "base_commit": "73d424ee5e6963d577e196d71c3b19c82e84e612",
+   "created_at": "2025-01-10 09:52:20"
+  },
+  "train_query120": {
+   "instance_id": "preactjs__preact-4152",
+   "repo": "preactjs/preact",
+   "language": "JavaScript",
+   "base_commit": "9c5a82efcc3dcbd0035c694817a3022d81264687",
+   "created_at": "2023-10-04 16:50:46"
+  },
+  "train_query121": {
+   "instance_id": "laravel__framework-52680",
+   "repo": "laravel/framework",
+   "language": "PHP",
+   "base_commit": "bb670ae486579b6121dc21f3dee35a1b50825746",
+   "created_at": "2024-09-06 13:29:41"
+  },
+  "train_query122": {
+   "instance_id": "apache__druid-13704",
+   "repo": "apache/druid",
+   "language": "Java",
+   "base_commit": "51dfde02840017092486fb75be2b16566aff6a19",
+   "created_at": "2023-01-23 04:10:47"
+  },
+  "train_query123": {
+   "instance_id": "nushell__nushell-13605",
+   "repo": "nushell/nushell",
+   "language": "Rust",
+   "base_commit": "48e401834d604563106a6ef3738a996d38c790ca",
+   "created_at": "2024-08-12 23:48:43"
+  },
+  "train_query124": {
+   "instance_id": "gohugoio__hugo-12562",
+   "repo": "gohugoio/hugo",
+   "language": "Go",
+   "base_commit": "c8dac67defbb512877e974814e196782989b8214",
+   "created_at": "2024-06-02 10:59:35"
+  },
+  "train_query125": {
+   "instance_id": "javaparser__javaparser-4538",
+   "repo": "javaparser/javaparser",
+   "language": "Java",
+   "base_commit": "e0eb16b8870fc05c03ab794e502dd76f97422e26",
+   "created_at": "2024-08-20 08:51:40"
+  },
+  "train_query126": {
+   "instance_id": "redis__redis-10068",
+   "repo": "redis/redis",
+   "language": "C",
+   "base_commit": "e88f6acb94c77c9a5b81f0b2a8bd132b2a5c3d3c",
+   "created_at": "2022-01-07 08:50:56"
+  },
+  "train_query127": {
+   "instance_id": "projectlombok__lombok-3602",
+   "repo": "projectlombok/lombok",
+   "language": "Java",
+   "base_commit": "f3a4b1b4151a9dd1646f1b170c17f5f29903f45a",
+   "created_at": "2024-02-06 00:13:56"
+  },
+  "train_query128": {
+   "instance_id": "axios__axios-4731",
+   "repo": "axios/axios",
+   "language": "JavaScript",
+   "base_commit": "c30252f685e8f4326722de84923fcbc8cf557f06",
+   "created_at": "2022-05-19 09:50:06"
+  },
+  "train_query129": {
+   "instance_id": "projectlombok__lombok-3422",
+   "repo": "projectlombok/lombok",
+   "language": "Java",
+   "base_commit": "dbd6ad41df78e1c1491be60ec0166ceb3bd8bb05",
+   "created_at": "2023-05-06 06:08:58"
+  },
+  "train_query130": {
+   "instance_id": "preactjs__preact-3062",
+   "repo": "preactjs/preact",
+   "language": "JavaScript",
+   "base_commit": "7556b61bd0d9f72bbd906c3abaebf2b1c9aeacbf",
+   "created_at": "2021-03-14 11:17:30"
+  },
+  "train_query131": {
+   "instance_id": "rubocop__rubocop-13424",
+   "repo": "rubocop/rubocop",
+   "language": "Ruby",
+   "base_commit": "acae60d2b80987b0f4e3b6fd26c99b0975ba618e",
+   "created_at": "2024-11-06 01:11:47"
+  },
+  "train_query132": {
+   "instance_id": "briannesbitt__carbon-2762",
+   "repo": "briannesbitt/carbon",
+   "language": "PHP",
+   "base_commit": "077657bce453df6992607e5aaa538d957068ae40",
+   "created_at": "2023-01-29 18:11:23"
+  },
+  "train_query133": {
+   "instance_id": "redis__redis-11631",
+   "repo": "redis/redis",
+   "language": "C",
+   "base_commit": "df327b8bd56023931cd41e233f8703de7bbaa82c",
+   "created_at": "2022-12-15 18:24:58"
+  },
+  "train_query134": {
+   "instance_id": "projectlombok__lombok-3674",
+   "repo": "projectlombok/lombok",
+   "language": "Java",
+   "base_commit": "c61a404b410bd482fcd6a48d303fb483932214d0",
+   "created_at": "2024-05-24 18:32:58"
+  },
+  "train_query135": {
+   "instance_id": "phpoffice__phpspreadsheet-3570",
+   "repo": "phpoffice/phpspreadsheet",
+   "language": "PHP",
+   "base_commit": "40203ff6cb18c9fff9f605ba78f21ce95fd04d6c",
+   "created_at": "2023-05-16 14:02:51"
+  },
+  "train_query136": {
+   "instance_id": "laravel__framework-52866",
+   "repo": "laravel/framework",
+   "language": "PHP",
+   "base_commit": "4c7850844e218b4fa25e29c83bc80b7ef06836cb",
+   "created_at": "2024-09-20 10:34:46"
+  },
+  "train_query137": {
+   "instance_id": "prometheus__prometheus-13845",
+   "repo": "prometheus/prometheus",
+   "language": "Go",
+   "base_commit": "25a8d576717f4a69290d6f6755b4a90cfaab08ff",
+   "created_at": "2024-03-26 16:26:46"
+  },
+  "train_query138": {
+   "instance_id": "laravel__framework-51890",
+   "repo": "laravel/framework",
+   "language": "PHP",
+   "base_commit": "5ed0ce8bbbc50843f4a63b47ed7004326e546697",
+   "created_at": "2024-06-23 08:21:53"
+  },
+  "train_query139": {
+   "instance_id": "briannesbitt__carbon-3098",
+   "repo": "briannesbitt/carbon",
+   "language": "PHP",
+   "base_commit": "cb0fd285ae34041ef2a0f62dc409bece61ff2bc4",
+   "created_at": "2024-11-03 15:45:53"
+  },
+  "train_query140": {
+   "instance_id": "caddyserver__caddy-6350",
+   "repo": "caddyserver/caddy",
+   "language": "Go",
+   "base_commit": "a52917a37dcc40eda1ff5034103d4a89883de2aa",
+   "created_at": "2024-05-30 07:37:48"
+  },
+  "train_query141": {
+   "instance_id": "sharkdp__bat-2201",
+   "repo": "sharkdp/bat",
+   "language": "Rust",
+   "base_commit": "02a9d191ed06e6e37d4e352f12e25e65e8037dd0",
+   "created_at": "2022-05-23 15:16:24"
+  },
+  "train_query142": {
+   "instance_id": "rubocop__rubocop-13479",
+   "repo": "rubocop/rubocop",
+   "language": "Ruby",
+   "base_commit": "04dd02e71a444fb36019d892fde6948a88aac637",
+   "created_at": "2024-11-20 19:27:57"
+  },
+  "train_query143": {
+   "instance_id": "apache__lucene-13704",
+   "repo": "apache/lucene",
+   "language": "Java",
+   "base_commit": "ce4f56e74ad1087df8bdc019fc09d1b40438e8b3",
+   "created_at": "2024-08-30 13:42:08"
+  },
+  "train_query144": {
+   "instance_id": "tokio-rs__axum-1934",
+   "repo": "tokio-rs/axum",
+   "language": "Rust",
+   "base_commit": "e97462d45251c21ffd1ba4fb5db30f3cf6f6cb6c",
+   "created_at": "2023-04-14 09:58:06"
+  },
+  "train_query145": {
+   "instance_id": "apache__lucene-12212",
+   "repo": "apache/lucene",
+   "language": "Java",
+   "base_commit": "b84b360f588c60e2ebdcaa2ce2e6d49f99dd9deb",
+   "created_at": "2023-03-23 16:36:28"
+  },
+  "train_query146": {
+   "instance_id": "fastlane__fastlane-19207",
+   "repo": "fastlane/fastlane",
+   "language": "Ruby",
+   "base_commit": "eadd030370cc62807c22fbb1af3663e98e293f8c",
+   "created_at": "2021-08-04 17:03:57"
+  },
+  "train_query147": {
+   "instance_id": "sharkdp__bat-2650",
+   "repo": "sharkdp/bat",
+   "language": "Rust",
+   "base_commit": "e2bf85e749d87459e3fced697af5cd9cc96eeb8c",
+   "created_at": "2023-08-28 14:14:31"
+  },
+  "train_query148": {
+   "instance_id": "fluent__fluentd-3641",
+   "repo": "fluent/fluentd",
+   "language": "Ruby",
+   "base_commit": "296f02180749bee4c22605474cd95194b04012d8",
+   "created_at": "2022-02-22 16:46:16"
+  },
+  "train_query149": {
+   "instance_id": "phpoffice__phpspreadsheet-3659",
+   "repo": "phpoffice/phpspreadsheet",
+   "language": "PHP",
+   "base_commit": "37a8a56299d3098032e3f8e1c2790607e226952e",
+   "created_at": "2023-07-31 09:58:06"
+  },
+  "train_query150": {
+   "instance_id": "fastlane__fastlane-19765",
+   "repo": "fastlane/fastlane",
+   "language": "Ruby",
+   "base_commit": "eaf77b0c319da3f18fc256aa79698aa239e58ef3",
+   "created_at": "2022-01-04 07:39:18"
+  },
+  "train_query151": {
+   "instance_id": "micropython__micropython-13569",
+   "repo": "micropython/micropython",
+   "language": "C",
+   "base_commit": "2d7fb9a715d8c9f1f7ba73a62cfd587fa6ffc24a",
+   "created_at": "2024-01-31 02:05:03"
+  },
+  "train_query152": {
+   "instance_id": "apache__lucene-12626",
+   "repo": "apache/lucene",
+   "language": "Java",
+   "base_commit": "de820b67cc6d7fc90446affeb756e70a2ddf6b92",
+   "created_at": "2023-10-06 12:43:10"
+  },
+  "train_query153": {
+   "instance_id": "micropython__micropython-12158",
+   "repo": "micropython/micropython",
+   "language": "C",
+   "base_commit": "c0d4c604e6a140c0f2967e1b43fd94d0b029c73f",
+   "created_at": "2023-08-03 20:26:24"
+  },
+  "train_query154": {
+   "instance_id": "mrdoob__three.js-26589",
+   "repo": "mrdoob/three.js",
+   "language": "JavaScript",
+   "base_commit": "8d9f8d50b923d5f8a673590ae138bc5d86a3a256",
+   "created_at": "2023-08-15 21:20:29"
+  },
+  "train_query155": {
+   "instance_id": "redis__redis-13338",
+   "repo": "redis/redis",
+   "language": "C",
+   "base_commit": "94b9072e44af0bae8cfe2de5cfa4af7b8e399759",
+   "created_at": "2024-06-12 07:20:18"
+  },
+  "train_query156": {
+   "instance_id": "tokio-rs__axum-1119",
+   "repo": "tokio-rs/axum",
+   "language": "Rust",
+   "base_commit": "23808f72a2c00c314cedea40a75b73954402a148",
+   "created_at": "2022-06-25 19:35:49"
+  },
+  "train_query157": {
+   "instance_id": "google__gson-1014",
+   "repo": "google/gson",
+   "language": "Java",
+   "base_commit": "7719e73a108c450666613c279bedaed724cd9cc9",
+   "created_at": "2017-02-08 12:37:29"
+  },
+  "train_query158": {
+   "instance_id": "briannesbitt__carbon-2665",
+   "repo": "briannesbitt/carbon",
+   "language": "PHP",
+   "base_commit": "01bc4cdefe98ef58d1f9cb31bdbbddddf2a88f7a",
+   "created_at": "2022-09-02 23:09:21"
+  },
+  "train_query159": {
+   "instance_id": "reactivex__rxjava-7597",
+   "repo": "reactivex/rxjava",
+   "language": "Java",
+   "base_commit": "13a8d83656940dce0c18e8e0a2a17ac157dd1ddb",
+   "created_at": "2023-08-29 21:57:38"
+  },
+  "train_query160": {
+   "instance_id": "laravel__framework-48573",
+   "repo": "laravel/framework",
+   "language": "PHP",
+   "base_commit": "0bf186a30279212a44d6818f8db6ddf70baa4d1a",
+   "created_at": "2023-09-28 07:03:35"
+  },
+  "train_query161": {
+   "instance_id": "phpoffice__phpspreadsheet-3940",
+   "repo": "phpoffice/phpspreadsheet",
+   "language": "PHP",
+   "base_commit": "9b3f2055288f3166374e02f2636071a959b1bf37",
+   "created_at": "2024-03-09 19:09:47"
+  },
+  "train_query162": {
+   "instance_id": "preactjs__preact-2927",
+   "repo": "preactjs/preact",
+   "language": "JavaScript",
+   "base_commit": "ee76c1eb169897412501d86fbe40122b34cd2e8d",
+   "created_at": "2021-01-14 10:31:20"
+  },
+  "train_query163": {
+   "instance_id": "redis__redis-11734",
+   "repo": "redis/redis",
+   "language": "C",
+   "base_commit": "45d3310694406fb0f338f7c639cda9754edb88f8",
+   "created_at": "2023-01-18 03:42:00"
+  },
+  "train_query164": {
+   "instance_id": "hashicorp__terraform-35543",
+   "repo": "hashicorp/terraform",
+   "language": "Go",
+   "base_commit": "24833a2b062126a71ef30a86a6d1fc3823afdfdb",
+   "created_at": "2024-08-08 18:57:58"
+  },
+  "train_query165": {
+   "instance_id": "jqlang__jq-2235",
+   "repo": "jqlang/jq",
+   "language": "C",
+   "base_commit": "b8816caf0a7f58c6483f4344e222a6fea47732e8",
+   "created_at": "2020-12-28 21:21:22"
+  },
+  "train_query166": {
+   "instance_id": "jordansissel__fpm-1829",
+   "repo": "jordansissel/fpm",
+   "language": "Ruby",
+   "base_commit": "c7e7b187316a0969c90706b04db35e78b0e2fc09",
+   "created_at": "2021-09-05 05:50:43"
+  },
+  "train_query167": {
+   "instance_id": "projectlombok__lombok-3571",
+   "repo": "projectlombok/lombok",
+   "language": "Java",
+   "base_commit": "55f3a02909957f97c2496ef25135857bf27cdd36",
+   "created_at": "2023-12-17 12:20:00"
+  },
+  "train_query168": {
+   "instance_id": "axios__axios-6539",
+   "repo": "axios/axios",
+   "language": "JavaScript",
+   "base_commit": "c6cce43cd94489f655f4488c5a50ecaf781c94f2",
+   "created_at": "2024-08-12 15:14:58"
+  },
+  "train_query169": {
+   "instance_id": "rubocop__rubocop-13668",
+   "repo": "rubocop/rubocop",
+   "language": "Ruby",
+   "base_commit": "418fdc98d631cfb52333c7aeae80c43c4a68d13a",
+   "created_at": "2025-01-10 11:02:27"
+  },
+  "train_query170": {
+   "instance_id": "rubocop__rubocop-13503",
+   "repo": "rubocop/rubocop",
+   "language": "Ruby",
+   "base_commit": "5800663c334011cc0fb580498ebc54f5a09187c2",
+   "created_at": "2024-11-27 05:02:13"
+  },
+  "train_query171": {
+   "instance_id": "preactjs__preact-3689",
+   "repo": "preactjs/preact",
+   "language": "TypeScript",
+   "base_commit": "9457b221fdacd1052ffdb385918e1bab4b10e833",
+   "created_at": "2022-08-21 05:51:04"
+  },
+  "train_query172": {
+   "instance_id": "sharkdp__bat-2260",
+   "repo": "sharkdp/bat",
+   "language": "Rust",
+   "base_commit": "c14ce4f7caa36fe524975c51f7aae3d5a852d1f9",
+   "created_at": "2022-08-05 20:31:57"
+  },
+  "train_query173": {
+   "instance_id": "preactjs__preact-3763",
+   "repo": "preactjs/preact",
+   "language": "JavaScript",
+   "base_commit": "e968a5a4000dfa9bec7e8d7b26543b23def6d29d",
+   "created_at": "2022-10-11 15:34:50"
+  },
+  "train_query174": {
+   "instance_id": "micropython__micropython-10095",
+   "repo": "micropython/micropython",
+   "language": "C",
+   "base_commit": "cc26bf7406dac7822de347d14a9935c101d7e8aa",
+   "created_at": "2022-11-26 18:15:33"
+  },
+  "train_query175": {
+   "instance_id": "preactjs__preact-2757",
+   "repo": "preactjs/preact",
+   "language": "JavaScript",
+   "base_commit": "b17a932342bfdeeaf1dc0fbe4f436c83e258d6c8",
+   "created_at": "2020-09-19 09:38:08"
+  },
+  "train_query176": {
+   "instance_id": "valkey-io__valkey-790",
+   "repo": "valkey-io/valkey",
+   "language": "C",
+   "base_commit": "35a188833335332980a16239ac2efebf241c8a6a",
+   "created_at": "2024-07-15 22:36:34"
+  },
+  "train_query177": {
+   "instance_id": "projectlombok__lombok-3312",
+   "repo": "projectlombok/lombok",
+   "language": "Java",
+   "base_commit": "b69ff85b9494a1a05a5763ef53069437328d443a",
+   "created_at": "2022-12-11 16:19:20"
+  },
+  "train_query178": {
+   "instance_id": "gohugoio__hugo-12448",
+   "repo": "gohugoio/hugo",
+   "language": "Go",
+   "base_commit": "196132753649e6e714f05c83122737cabd0da310",
+   "created_at": "2024-04-30 17:15:54"
+  },
+  "train_query179": {
+   "instance_id": "phpoffice__phpspreadsheet-3903",
+   "repo": "phpoffice/phpspreadsheet",
+   "language": "PHP",
+   "base_commit": "0c8a80e83470bd4e042c500955684cad6f76b19f",
+   "created_at": "2024-02-15 05:22:52"
+  },
+  "train_query180": {
+   "instance_id": "php-cs-fixer__php-cs-fixer-8075",
+   "repo": "php-cs-fixer/php-cs-fixer",
+   "language": "PHP",
+   "base_commit": "f0a95a77782538eafca6c4d2f2f2792be3dbbfcf",
+   "created_at": "2024-06-10 18:21:26"
+  },
+  "train_query181": {
+   "instance_id": "caddyserver__caddy-4774",
+   "repo": "caddyserver/caddy",
+   "language": "Go",
+   "base_commit": "f7be0ee10131f25620a2f64af7e3ded43eae2049",
+   "created_at": "2022-05-08 19:33:15"
+  },
+  "train_query182": {
+   "instance_id": "projectlombok__lombok-3697",
+   "repo": "projectlombok/lombok",
+   "language": "Java",
+   "base_commit": "fdafa9a0a69009d508578287e53d9cb57edc5deb",
+   "created_at": "2024-06-24 22:12:22"
+  },
+  "train_query183": {
+   "instance_id": "rubocop__rubocop-13393",
+   "repo": "rubocop/rubocop",
+   "language": "Ruby",
+   "base_commit": "8454d9332297e82b50239fcaaae74cc2e7c4a399",
+   "created_at": "2024-10-27 05:32:11"
+  },
+  "train_query184": {
+   "instance_id": "jqlang__jq-2919",
+   "repo": "jqlang/jq",
+   "language": "C",
+   "base_commit": "7f547827e47b5ade563a293329deb4226496d72f",
+   "created_at": "2023-10-03 02:40:07"
+  },
+  "train_query185": {
+   "instance_id": "jqlang__jq-2658",
+   "repo": "jqlang/jq",
+   "language": "C",
+   "base_commit": "c077b95ba2dcaafee39e302cc086bf99fa9248d0",
+   "created_at": "2023-07-05 16:28:49"
+  },
+  "train_query186": {
+   "instance_id": "laravel__framework-53949",
+   "repo": "laravel/framework",
+   "language": "PHP",
+   "base_commit": "3ac290c1a551bd6aaf2c2cc46cec1e42facae0e4",
+   "created_at": "2024-12-17 19:44:29"
+  },
+  "train_query187": {
+   "instance_id": "google__gson-2311",
+   "repo": "google/gson",
+   "language": "Java",
+   "base_commit": "9f26679e7a96f0bb9952c326b2d9f79ef03ea9f5",
+   "created_at": "2023-02-06 15:17:53"
+  },
+  "train_query188": {
+   "instance_id": "redis__redis-12472",
+   "repo": "redis/redis",
+   "language": "C",
+   "base_commit": "6abfda54c380c07ea0d460706833929654fac25a",
+   "created_at": "2023-08-10 04:00:07"
+  },
+  "train_query189": {
+   "instance_id": "uutils__coreutils-6575",
+   "repo": "uutils/coreutils",
+   "language": "Rust",
+   "base_commit": "bc0b4880e000b881a1cabc733b2d261f3526d15e",
+   "created_at": "2024-07-15 23:26:55"
+  },
+  "train_query190": {
+   "instance_id": "phpoffice__phpspreadsheet-4214",
+   "repo": "phpoffice/phpspreadsheet",
+   "language": "PHP",
+   "base_commit": "915bfc55cd6217e059b5859b341bab7bdd0874c8",
+   "created_at": "2024-11-05 03:25:21"
+  },
+  "train_query191": {
+   "instance_id": "laravel__framework-53206",
+   "repo": "laravel/framework",
+   "language": "PHP",
+   "base_commit": "5c9cb78beb156b501c25e571739982f05aab90c9",
+   "created_at": "2024-10-17 23:08:19"
+  },
+  "train_query192": {
+   "instance_id": "prometheus__prometheus-15142",
+   "repo": "prometheus/prometheus",
+   "language": "Go",
+   "base_commit": "16bba78f1549cfd7909b61ebd7c55c822c86630b",
+   "created_at": "2024-10-10 11:22:41"
+  },
+  "train_query193": {
+   "instance_id": "projectlombok__lombok-3326",
+   "repo": "projectlombok/lombok",
+   "language": "Java",
+   "base_commit": "9e6f66c557205bff3c87eefb4c7a7631d0b89ff0",
+   "created_at": "2023-01-09 22:15:37"
+  },
+  "train_query194": {
+   "instance_id": "uutils__coreutils-6690",
+   "repo": "uutils/coreutils",
+   "language": "Rust",
+   "base_commit": "af86aee6b86a99736ca304ff656d0e4c6d547333",
+   "created_at": "2024-09-09 22:14:37"
+  },
+  "train_query195": {
+   "instance_id": "jekyll__jekyll-8771",
+   "repo": "jekyll/jekyll",
+   "language": "Ruby",
+   "base_commit": "d45fb9647761c8c208865f71cedb9f2f0dc26f1d",
+   "created_at": "2021-08-19 12:58:25"
+  },
+  "train_query196": {
+   "instance_id": "jqlang__jq-2598",
+   "repo": "jqlang/jq",
+   "language": "C",
+   "base_commit": "4dc2a2fb9df94ec45d107b798173c7db9c695a7f",
+   "created_at": "2023-06-01 14:53:30"
+  },
+  "train_query197": {
+   "instance_id": "prometheus__prometheus-14861",
+   "repo": "prometheus/prometheus",
+   "language": "Go",
+   "base_commit": "9f57f14d6c5e3c10ed212010cb34522458f43d64",
+   "created_at": "2024-09-08 11:24:56"
+  },
+  "train_query198": {
+   "instance_id": "jekyll__jekyll-9141",
+   "repo": "jekyll/jekyll",
+   "language": "Ruby",
+   "base_commit": "bb851e235dfbe1f197388aea3e7f0eeb1b50c4e3",
+   "created_at": "2022-10-01 00:35:01"
+  },
+  "train_query199": {
+   "instance_id": "projectlombok__lombok-3371",
+   "repo": "projectlombok/lombok",
+   "language": "Java",
+   "base_commit": "13642eb896ae6dbbaebab6df3c3758296102ead8",
+   "created_at": "2023-03-14 23:05:36"
+  },
+  "train_query200": {
+   "instance_id": "astral-sh__ruff-15330",
+   "repo": "astral-sh/ruff",
+   "language": "Rust",
+   "base_commit": "b2a0d68d70ee690ea871fe9b3317be43075ddb33",
+   "created_at": "2025-01-07 20:19:23"
+  },
+  "train_query201": {
+   "instance_id": "briannesbitt__carbon-2981",
+   "repo": "briannesbitt/carbon",
+   "language": "PHP",
+   "base_commit": "1d762cbdb379838b10bde0a5a901c5b5c2a83437",
+   "created_at": "2024-03-27 11:30:56"
+  },
+  "train_query202": {
+   "instance_id": "rubocop__rubocop-13396",
+   "repo": "rubocop/rubocop",
+   "language": "Ruby",
+   "base_commit": "3e855b0e2eb51311c690bb809d767653d1a0ee4a",
+   "created_at": "2024-10-27 17:45:34"
+  },
+  "train_query203": {
+   "instance_id": "phpoffice__phpspreadsheet-4114",
+   "repo": "phpoffice/phpspreadsheet",
+   "language": "PHP",
+   "base_commit": "b40636742533721d55a434838830e30d57889aef",
+   "created_at": "2024-07-26 15:33:12"
+  },
+  "train_query204": {
+   "instance_id": "tokio-rs__tokio-6603",
+   "repo": "tokio-rs/tokio",
+   "language": "Rust",
+   "base_commit": "873cb8ae2fc291eaffbd71e3c83d17b2f0ed7abf",
+   "created_at": "2024-05-30 12:21:31"
+  },
+  "train_query205": {
+   "instance_id": "tokio-rs__tokio-4867",
+   "repo": "tokio-rs/tokio",
+   "language": "Rust",
+   "base_commit": "53cf021b813c61cdeace26e863c89f65f6e92abd",
+   "created_at": "2022-07-26 16:15:07"
+  },
+  "train_query206": {
+   "instance_id": "tokio-rs__axum-691",
+   "repo": "tokio-rs/axum",
+   "language": "Rust",
+   "base_commit": "d6ce99190b2d53e5858678264027e656197f0efa",
+   "created_at": "2022-01-06 10:16:27"
+  },
+  "train_query207": {
+   "instance_id": "projectlombok__lombok-3479",
+   "repo": "projectlombok/lombok",
+   "language": "Java",
+   "base_commit": "8e55a957589cf1a45d6c3890c1d5d0d1b51558b0",
+   "created_at": "2023-08-07 20:24:14"
+  },
+  "train_query208": {
+   "instance_id": "laravel__framework-52451",
+   "repo": "laravel/framework",
+   "language": "PHP",
+   "base_commit": "b8ca298a5475497d01b194ed5688441454d8ee34",
+   "created_at": "2024-08-11 18:32:17"
+  },
+  "train_query209": {
+   "instance_id": "valkey-io__valkey-1842",
+   "repo": "valkey-io/valkey",
+   "language": "C",
+   "base_commit": "4de8cf3567b4dfd3a541219462b22d46c730c4b4",
+   "created_at": "2025-03-12 12:08:09"
+  },
+  "train_query210": {
+   "instance_id": "php-cs-fixer__php-cs-fixer-7998",
+   "repo": "php-cs-fixer/php-cs-fixer",
+   "language": "PHP",
+   "base_commit": "efe7a396a3e5434123011a808cf8d57681713530",
+   "created_at": "2024-05-08 21:51:48"
+  },
+  "train_query211": {
+   "instance_id": "redis__redis-10764",
+   "repo": "redis/redis",
+   "language": "C",
+   "base_commit": "843a4cdc075a5b251e1b154f8013a9e0abe1038b",
+   "created_at": "2022-05-23 07:36:18"
+  },
+  "train_query212": {
+   "instance_id": "fastlane__fastlane-20975",
+   "repo": "fastlane/fastlane",
+   "language": "Ruby",
+   "base_commit": "65db20a25897595169cb64d7e0900b8176aa62c3",
+   "created_at": "2023-01-06 22:17:44"
+  },
+  "train_query213": {
+   "instance_id": "phpoffice__phpspreadsheet-4313",
+   "repo": "phpoffice/phpspreadsheet",
+   "language": "PHP",
+   "base_commit": "eacaa25dca01b79b9b468184c452b97ad0b30dd7",
+   "created_at": "2025-01-10 07:18:11"
+  },
+  "train_query214": {
+   "instance_id": "apache__druid-14136",
+   "repo": "apache/druid",
+   "language": "Java",
+   "base_commit": "a7d4162195a630c380d75516c24229cc23e25271",
+   "created_at": "2023-04-20 22:54:25"
+  },
+  "train_query215": {
+   "instance_id": "mrdoob__three.js-27395",
+   "repo": "mrdoob/three.js",
+   "language": "JavaScript",
+   "base_commit": "b99b3fd955864f534b1e2649518112f7e50fef21",
+   "created_at": "2023-12-18 10:05:09"
+  },
+  "train_query216": {
+   "instance_id": "php-cs-fixer__php-cs-fixer-8367",
+   "repo": "php-cs-fixer/php-cs-fixer",
+   "language": "PHP",
+   "base_commit": "50594cc3bca17298f81b5d4c3bd993275f7a6b55",
+   "created_at": "2025-01-12 10:26:00"
+  },
+  "train_query217": {
+   "instance_id": "preactjs__preact-4182",
+   "repo": "preactjs/preact",
+   "language": "JavaScript",
+   "base_commit": "66cb6a78776b263a2fe4d1283426e699961095d2",
+   "created_at": "2023-10-31 07:57:20"
+  },
+  "train_query218": {
+   "instance_id": "tokio-rs__tokio-6724",
+   "repo": "tokio-rs/tokio",
+   "language": "Rust",
+   "base_commit": "0cbf1a5adae81e8ff86ca6d040aeee67cf888262",
+   "created_at": "2024-07-25 12:07:33"
+  },
+  "train_query219": {
+   "instance_id": "caddyserver__caddy-6288",
+   "repo": "caddyserver/caddy",
+   "language": "Go",
+   "base_commit": "d129ae6aec6af2182217ee8a235f4df8cd2bbfde",
+   "created_at": "2024-05-01 11:28:30"
+  },
+  "train_query220": {
+   "instance_id": "valkey-io__valkey-928",
+   "repo": "valkey-io/valkey",
+   "language": "C",
+   "base_commit": "5d97f5133c271313cd5a172617e8af1fe845e0e2",
+   "created_at": "2024-08-21 07:41:59"
+  },
+  "train_query221": {
+   "instance_id": "fastlane__fastlane-20958",
+   "repo": "fastlane/fastlane",
+   "language": "Ruby",
+   "base_commit": "6ff1c49bd90bdc29a94b6f99f568cf86fffc376d",
+   "created_at": "2022-12-30 12:43:06"
+  },
+  "train_query222": {
+   "instance_id": "redis__redis-9733",
+   "repo": "redis/redis",
+   "language": "C",
+   "base_commit": "77d3c6bff30331fb94a8570adc29872368e15ca2",
+   "created_at": "2021-11-03 12:30:07"
+  },
+  "train_query223": {
+   "instance_id": "apache__lucene-13170",
+   "repo": "apache/lucene",
+   "language": "Java",
+   "base_commit": "3f4413567d2d41ecee16fcfe2c91a4b84bec0df8",
+   "created_at": "2024-03-09 09:24:47"
+  },
+  "train_query224": {
+   "instance_id": "rubocop__rubocop-13375",
+   "repo": "rubocop/rubocop",
+   "language": "Ruby",
+   "base_commit": "75160946ac3620005874d5188101dab77d585be2",
+   "created_at": "2024-10-22 14:32:20"
+  },
+  "train_query225": {
+   "instance_id": "jqlang__jq-2650",
+   "repo": "jqlang/jq",
+   "language": "C",
+   "base_commit": "d8072564c28d38d29aa0a7c416621f02c19f7f44",
+   "created_at": "2023-07-03 16:26:45"
+  },
+  "train_query226": {
+   "instance_id": "axios__axios-5316",
+   "repo": "axios/axios",
+   "language": "JavaScript",
+   "base_commit": "65e8d1e28ce829f47a837e45129730e541950d3c",
+   "created_at": "2022-11-27 18:02:03"
+  },
+  "train_query227": {
+   "instance_id": "immutable-js__immutable-js-2006",
+   "repo": "immutable-js/immutable-js",
+   "language": "JavaScript",
+   "base_commit": "493afba6ec17d9c999dc5a15ac80c71c6bdba1c3",
+   "created_at": "2024-07-22 11:59:35"
+  },
+  "train_query228": {
+   "instance_id": "laravel__framework-53914",
+   "repo": "laravel/framework",
+   "language": "PHP",
+   "base_commit": "37d48c45e0e2496c3acecee431416c1d1aab52bb",
+   "created_at": "2024-12-16 11:21:23"
+  },
+  "train_query229": {
+   "instance_id": "axios__axios-5085",
+   "repo": "axios/axios",
+   "language": "TypeScript",
+   "base_commit": "85740c3e7a1fa48346dfcbd4497f463ccb1c1b05",
+   "created_at": "2022-10-10 15:26:26"
+  },
+  "train_query230": {
+   "instance_id": "briannesbitt__carbon-3041",
+   "repo": "briannesbitt/carbon",
+   "language": "PHP",
+   "base_commit": "b3d0d94a1aab70d5580742659ae45177cec5ebcb",
+   "created_at": "2024-06-20 13:33:58"
+  },
+  "train_query231": {
+   "instance_id": "preactjs__preact-3010",
+   "repo": "preactjs/preact",
+   "language": "JavaScript",
+   "base_commit": "c12331064f4ea967641cd5e419204422af050fbb",
+   "created_at": "2021-02-13 09:24:22"
+  },
+  "train_query232": {
+   "instance_id": "uutils__coreutils-6377",
+   "repo": "uutils/coreutils",
+   "language": "Rust",
+   "base_commit": "e2aa2c74408d46da900cad4a0b764c8760a300ff",
+   "created_at": "2024-05-07 15:26:52"
+  },
+  "train_query233": {
+   "instance_id": "axios__axios-4738",
+   "repo": "axios/axios",
+   "language": "JavaScript",
+   "base_commit": "9bb016f95e6de871a44f3276fd06562704a0abb0",
+   "created_at": "2022-05-24 14:47:14"
+  }
+ }
+}

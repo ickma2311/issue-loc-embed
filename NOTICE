@@ -27,7 +27,20 @@ Models and data:
   or evaluation repositories is included in this repository; see docs/DATA.md for the pointer format and build script. The pointer
   file (data/train_pointers.parquet) is adapted from SWE-rebench / SWE-rebench-V2 (row selection, derived function
   ids) and is distributed under CC-BY-4.0 (https://creativecommons.org/licenses/by/4.0/).
+- v0.2 pointer file (data/train_pointers_v02.parquet, CC-BY-4.0): its 18,784 Python rows are the v0.1 pointers
+  (nebius/SWE-rebench and nebius/SWE-rebench-V2 at the revisions in scripts/checks/hf_revisions.json); its 14,554
+  rows in Go, TypeScript, JavaScript, Rust, Java, PHP, C and C++, and data/tasks_ml_v02.json, are adapted from
+  nebius/SWE-rebench-V2 at revision 10483de0f50fe5da545942705a76c6150171af7f (CC-BY-4.0). Changes: row selection
+  and derived function ids.
+- Third evaluation set: mteb/SWEbenchMultilingualRR (MIT) and SWE-bench/SWE-bench_Multilingual, used for evaluation
+  only; data/ml_meta.json (query-to-instance mapping, language, repository) is derived from them.
 - Evaluation labels: czlll/SWE-bench_Lite (gold functions released with LocAgent) over
   princeton-nlp/SWE-bench_Lite (SWE-bench code is MIT; the HF dataset card declares no licence).
 - Second evaluation set: czlll/Loc-Bench_V1 (LocAgent, Chen et al., arXiv 2503.09089; the HF dataset card
   declares no licence), used for evaluation only and not redistributed.
+
+Build dependencies (installed with pip, not included):
+
+- tree-sitter 0.25.2 (MIT License) and tree-sitter-language-pack 1.22.1 (MIT License; the bundled grammars for
+  Go, Rust, Java, PHP, C, C++, JavaScript and TypeScript are MIT-licensed), used only to extract functions from
+  source files when building the v0.2 training data (issueloc/units_ml.py).

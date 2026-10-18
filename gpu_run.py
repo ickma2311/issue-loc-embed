@@ -268,7 +268,7 @@ def mine(model: str, rep: str, data: Path, out: Path, name: str, keep_from: str 
          limit_tasks: int = 0):
     assert rep in ("R1", "R2"), rep
     assert model != "REF", "the NC reference model is evaluation-only"
-    if os.environ.get("EMBED_BACKEND") == "vllm" and EVAL_SET.startswith("paper"):
+    if EVAL_SET.startswith("paper") and (os.environ.get("EMBED_BACKEND") == "vllm" or os.environ.get("MINE_LOWMEM") == "1"):
         return mine_lowmem(model, data, out, name, keep_from, limit_tasks)
     tasks, by_snap, texts = load_train(data, limit_tasks)
     keep = None
@@ -352,8 +352,12 @@ def mine_lowmem(model: str, data: Path, out: Path, name: str, keep_from: str | N
     order = np.argsort(txt_h); txt_sorted = txt_h[order]
     log(f"mine {name} (low-mem): {len(tasks)} tasks, {len(txt_h)} pool texts (~{len(txt_h) * 768 * 2 / 1e9:.1f} GB embeddings)")
     name_, sd = model_spec(model)
-    from issueloc.model import encode_parquet_vllm
-    D = encode_parquet_vllm(name_, sd, txt_files[0], 256)
+    if os.environ.get("EMBED_BACKEND") == "vllm":
+        from issueloc.model import encode_parquet_vllm
+        D = encode_parquet_vllm(name_, sd, txt_files[0], 256)
+    else:  # HF encoder on all GPUs, texts read in chunks (v0.2 training on Kaggle T4 x2)
+        from issueloc.model import encode_parquet_hf
+        D = encode_parquet_hf(name_, sd, txt_files[0], 256, progress=f"pool {name}")
     assert D.shape[0] == len(txt_h)
     Q = encode_multi_gpu(name_, sd, [QUERY_PREFIX + t["query"] for t in tasks], 512)
 

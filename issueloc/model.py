@@ -190,6 +190,28 @@ def encode_parquet_vllm(name: str, state_dict_path: str | None, parquet_path: st
     return out
 
 
+def encode_parquet_hf(name: str, state_dict_path: str | None, parquet_path: str, max_len: int,
+                      chunk: int = 100000, progress: str | None = None) -> np.ndarray:
+    """HF encoder on all visible GPUs for the "text" column of a parquet file (row order preserved), read in
+    chunks so the texts are never all in memory (v0.2 mining pool: 3,440,484 texts)."""
+    import pyarrow.parquet as pq
+    devs = [f"cuda:{i}" for i in range(torch.cuda.device_count())] or ["cpu"]
+    models = [load_encoder(name, d, state_dict_path) for d in devs]
+    pf = pq.ParquetFile(parquet_path)
+    out = np.full((pf.metadata.num_rows, 768), np.nan, dtype=np.float16)
+    pos = 0
+    for b in pf.iter_batches(batch_size=chunk, columns=["text"]):
+        texts = b.column(0).to_pylist()
+        out[pos:pos + len(texts)] = encode_multi_gpu(name, state_dict_path, texts, max_len, models=models)
+        pos += len(texts)
+        if progress:
+            print(f"[progress] {progress} {pos}/{len(out)}", flush=True)
+    assert pos == len(out)
+    if not np.isfinite(out).all():
+        raise FloatingPointError("non-finite embeddings")
+    return out
+
+
 def encode_multi_gpu(name: str, state_dict_path: str | None, texts, max_len: int,
                      progress: str | None = None, models=None, n: int | None = None) -> np.ndarray:
     """Split across all visible GPUs (one model copy and one thread per GPU), or run the vLLM worker when
