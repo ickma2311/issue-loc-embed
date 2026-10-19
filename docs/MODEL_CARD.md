@@ -193,11 +193,16 @@ and 512 for units. Same architecture and tokenizer as CodeRankEmbed.
 
 ## Demo
 
-<video controls width="100%" src="https://huggingface.co/ickma2311/issue-loc-embed-small/resolve/main/demo/issue-loc-embed-demo.mp4"></video>
+<video controls width="100%" src="https://huggingface.co/ickma2311/issue-loc-embed-small/resolve/main/demo/issue-loc-embed-v02.mp4"></video>
 
-A 3-minute walkthrough made for v0.1 (Python): its results on SWE-Bench-Lite and LocBench, the training recipe,
-usage, and two real issues. The numbers in the video are v0.1's. English narration, with English and Chinese
-captions burned in. Caption files:
+A 4-minute walkthrough of v0.2: its results on SWE-bench Multilingual, SWE-Bench-Lite and LocBench, a per-language
+comparison with CodeRankEmbed and v0.1 at Acc@10, Acc@5 and Acc@1, two real issues (one that v0.2 finds and one that
+it misses), the input format for other languages, how to load v0.1, and the limits. English narration, with English
+and Chinese captions burned in. Caption files:
+[English](https://huggingface.co/ickma2311/issue-loc-embed-small/blob/main/demo/issue-loc-embed-v02.en.srt), [Chinese](https://huggingface.co/ickma2311/issue-loc-embed-small/blob/main/demo/issue-loc-embed-v02.zh.srt).
+
+The earlier v0.1 walkthrough (3 minutes, Python only; the numbers in it are v0.1's):
+[video](https://huggingface.co/ickma2311/issue-loc-embed-small/blob/main/demo/issue-loc-embed-demo.mp4), captions
 [English](https://huggingface.co/ickma2311/issue-loc-embed-small/blob/main/demo/issue-loc-embed-demo.en.srt), [Chinese](https://huggingface.co/ickma2311/issue-loc-embed-small/blob/main/demo/issue-loc-embed-demo.zh.srt).
 
 ## Training

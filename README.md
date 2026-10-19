@@ -34,9 +34,10 @@ from `prometheus/prometheus` and `nushell/nushell` (training contains code prede
 `Qiskit/qiskit`, because training contains a fork and a renamed copy of them; on all 560 issues: 58.21 / 57.32 /
 47.32. Data, isolation checks and known label limits: [docs/DATA.md](docs/DATA.md).
 
-[![Demo video: issue-loc-embed-small, 3 minutes](docs/demo-thumbnail.png)](https://huggingface.co/ickma2311/issue-loc-embed-small/blob/main/demo/issue-loc-embed-demo.mp4)
+[![Demo video: issue-loc-embed-small v0.2, 4 minutes](docs/demo-v02-thumbnail.png)](https://huggingface.co/ickma2311/issue-loc-embed-small/blob/main/demo/issue-loc-embed-v02.mp4)
 
-Demo video (3 minutes, English narration, English and Chinese captions): [watch on Hugging Face](https://huggingface.co/ickma2311/issue-loc-embed-small/blob/main/demo/issue-loc-embed-demo.mp4).
+Demo video for v0.2 (4 minutes, English narration, English and Chinese captions): [watch on Hugging Face](https://huggingface.co/ickma2311/issue-loc-embed-small/blob/main/demo/issue-loc-embed-v02.mp4).
+The earlier v0.1 video (3 minutes, Python only): [watch on Hugging Face](https://huggingface.co/ickma2311/issue-loc-embed-small/blob/main/demo/issue-loc-embed-demo.mp4).
 
 ## v0.1 results — function localization
 
